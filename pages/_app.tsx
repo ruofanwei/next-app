@@ -1,4 +1,4 @@
-import '../styles/globals.css';
+import '../components/styles/globals.css';
 import 'tailwindcss/tailwind.css';
 import { ChakraProvider } from '@chakra-ui/react';
 import type { AppProps } from 'next/app';

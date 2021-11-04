@@ -31,8 +31,10 @@
     "tailwindcss": "^2.2.19"
   },
   "devDependencies": {
+    "@chakra-ui/core": "^0.8.0",
     "@types/node": "16.11.6",
     "@types/react": "17.0.33",
+    "@types/tailwindcss": "^2.2.3",
     "@typescript-eslint/eslint-plugin": "^5.3.0",
     "eslint": "7",
     "eslint-config-next": "12.0.2",
