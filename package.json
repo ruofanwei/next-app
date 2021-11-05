@@ -32,6 +32,8 @@
   },
   "devDependencies": {
     "@chakra-ui/core": "^0.8.0",
+    "@chakra-ui/icons": "^1.0.17",
+    "@hypertheme-editor/chakra-ui": "^0.1.2",
     "@types/node": "16.11.6",
     "@types/react": "17.0.33",
     "@types/tailwindcss": "^2.2.3",

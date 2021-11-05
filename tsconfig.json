@@ -2,20 +2,23 @@
   "compilerOptions": {
     "baseUrl": "./src",
     "paths": {
-      "@components/*": [
+      "@/components/*": [
         "components/*"
       ],
-      "@lib/*": [
+      "@/lib/*": [
         "lib/*"
       ],
-      "@interfaces/*": [
+      "@/interfaces/*": [
         "interfaces/*"
       ],
-      "@pages/*": [
+      "@/pages/*": [
         "pages/*"
       ],
-      "@styles/*": [
+      "@/styles/*": [
         "components/styles/*"
+      ],
+      "@/chakra/*": [
+        "chakra/*"
       ],
     },
     "target": "esnext",
