@@ -7,7 +7,7 @@ interface IMultiContainerProps extends BoxProps {
   size?: 'prose' | '1/4' | '2/4' | '3/4' | 'full';
 }
 
-const MultiContainer: React.FC<IMultiContainerProps> = ({
+const CustomContainer: React.FC<IMultiContainerProps> = ({
   variant = undefined,
   colorScheme = undefined,
   size = undefined,
@@ -27,4 +27,4 @@ const MultiContainer: React.FC<IMultiContainerProps> = ({
   );
 };
 
-export default MultiContainer;
+export default CustomContainer;
