@@ -16,8 +16,8 @@
   },
   "dependencies": {
     "@chakra-ui/react": "^1.6.12",
-    "@emotion/react": "^11",
-    "@emotion/styled": "^11",
+    "@emotion/react": "^11.5.0",
+    "@emotion/styled": "^11.3.0",
     "@fullhuman/postcss-purgecss": "^4.0.3",
     "@tailwindcss/typography": "^0.4.1",
     "autoprefixer": "^10.4.0",

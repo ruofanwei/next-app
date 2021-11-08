@@ -1,7 +1,7 @@
 import { extendTheme, ThemeConfig } from '@chakra-ui/react';
 import { createBreakpoints } from '@chakra-ui/theme-tools';
-import Container from './container';
-import CustomContainer from './custom-container';
+
+import components from './components';
 
 const fonts = { mono: `'Menlo', monospace` };
 
@@ -19,10 +19,7 @@ const config: ThemeConfig = {
 };
 
 const theme = extendTheme({
-  components: {
-    Container,
-    CustomContainer,
-  },
+  components,
   fonts,
   breakpoints,
   config,
