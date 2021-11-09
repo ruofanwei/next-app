@@ -4,6 +4,11 @@ const Button: DeepPartial<Theme['components']['Button']> = {
   baseStyle: {
     _focus: {
       boxShadow: 'none',
+      outline: 'none',
+    },
+    _active: {
+      boxShadow: 'none',
+      borderColor: 'unset',
     },
   },
 };

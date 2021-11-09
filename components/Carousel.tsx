@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react';
 import { Text, Box, Flex, useColorModeValue, HStack, chakra } from '@chakra-ui/react';
-
 import NextImage from 'next/image';
 import { arrowStyles } from './styles/arrowStyles';
 const slides = [
@@ -20,7 +19,7 @@ const slides = [
     img: 'https://images.pexels.com/photos/3124111/pexels-photo-3124111.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940',
   },
 ];
-const ProductImage = chakra(NextImage, {
+const CarouseImage = chakra(NextImage, {
   baseStyle: { maxH: 120, maxW: 120 },
   shouldForwardProp: (prop) => ['width', 'height', 'src', 'alt'].includes(prop),
 });
@@ -70,7 +69,7 @@ export const Carousel = () => {
               <Text color="white" fontSize="xs" p="8px 12px" pos="absolute" top="0" whiteSpace="nowrap">
                 {sid + 1} / {slidesCount}
               </Text>
-              <ProductImage src={slide.img} boxSize="full" backgroundSize="cover" width={'760'} height={'400'} />
+              <CarouseImage src={slide.img} boxSize="full" backgroundSize="cover" width={'760'} height={'400'} />
             </Box>
           ))}
         </Flex>
