@@ -7,7 +7,7 @@ const nextConfig = {
   reactStrictMode: true,
   images: {
     formats: ['image/avif', 'image/webp'],
-    domains: ['unsplash.com'],
+    domains: ['images.pexels.com'],
   },
 };
 

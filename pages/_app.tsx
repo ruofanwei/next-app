@@ -1,4 +1,3 @@
-import '../components/styles/globals.css';
 import 'tailwindcss/tailwind.css';
 
 import { ChakraProvider } from '@chakra-ui/react';
