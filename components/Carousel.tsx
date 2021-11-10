@@ -62,9 +62,9 @@ export const Carousel = () => {
       justifyContent="center"
     >
       <Flex w={{ base: 'full', md: '760px' }}>
-        <Flex pos="relative" h={{ base: '130px', md: '400px' }} w={{ base: 'full', md: '760px' }} {...carouselStyle}>
+        <Flex pos="relative" h={{ base: '200px', md: '400px' }} w={{ base: 'full', md: '760px' }} {...carouselStyle}>
           {slides.map((slide, sid) => (
-            <Box key={`slide-${sid}`} flex="none" boxSize="full" shadow="md" css={{ scrollSnapAlign: 'center' }}>
+            <Box key={`slide-${sid}`} flex="none" boxSize="full" shadow="md">
               <Text color="white" fontSize="xs" p="8px 12px" pos="absolute" top="0" whiteSpace="nowrap">
                 {sid + 1} / {slidesCount}
               </Text>

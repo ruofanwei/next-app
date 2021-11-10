@@ -2,6 +2,7 @@ import React from 'react';
 import { chakra, Box } from '@chakra-ui/react';
 import NextImage from 'next/image';
 import { GridResponsive } from './layout/GridResponsive';
+
 const CardImage = chakra(NextImage, {
   baseStyle: { maxH: 120, maxW: 120 },
   shouldForwardProp: (prop) => ['width', 'height', 'src', 'alt'].includes(prop),

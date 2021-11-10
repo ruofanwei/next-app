@@ -7,7 +7,7 @@ import { Main } from '../components/Main';
 
 const Home: NextPage = () => {
   return (
-    <Container overflow="auto" m="0" p="0">
+    <Container overflow="hidden" m="0" p="0">
       <Header />
       <Main />
       <Footer />

@@ -27,12 +27,11 @@ import { Container } from './Container';
 export const Main = () => {
   return (
     <Container margin="0" padding="0">
-      <Stack textAlign={'center'} align={'center'} spacing={{ base: 8, md: 10 }} py={{ base: 0, md: 0 }}>
+      <Stack textAlign={'center'} align={'center'} spacing={{ base: 8, md: 10 }}>
         <Carousel />
-        <Stack spacing={6} direction={'row'}>
+        <Stack spacing={6} direction={'row'} mt={{ base: 10, md: 0 }}>
           <CustomTab />
         </Stack>
-        <Flex w={'full'}></Flex>
       </Stack>
     </Container>
   );
