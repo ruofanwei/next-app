@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { Text, Box, Flex, useColorModeValue, HStack, chakra } from '@chakra-ui/react';
+import { Text, Box, Flex, useColorModeValue, HStack, chakra, Grid } from '@chakra-ui/react';
 import NextImage from 'next/image';
 import { arrowStyles } from './styles/arrowStyles';
 const slides = [
@@ -55,21 +55,27 @@ export const Carousel = () => {
 
   return (
     <Flex
-      w="full"
+      w={{ base: 'full', md: '760px' }}
       pos="relative"
       bg={useColorModeValue('gray.200', 'gray.600')}
-      p={10}
       alignItems="center"
       justifyContent="center"
     >
-      <Flex w="full" overflow="hidden">
-        <Flex pos="relative" h={{ base: '130px', md: '400px' }} w="full" {...carouselStyle}>
+      <Flex w={{ base: 'full', md: '760px' }}>
+        <Flex pos="relative" h={{ base: '130px', md: '400px' }} w={{ base: 'full', md: '760px' }} {...carouselStyle}>
           {slides.map((slide, sid) => (
-            <Box key={`slide-${sid}`} flex="none" boxSize="full" shadow="md">
+            <Box key={`slide-${sid}`} flex="none" boxSize="full" shadow="md" css={{ scrollSnapAlign: 'center' }}>
               <Text color="white" fontSize="xs" p="8px 12px" pos="absolute" top="0" whiteSpace="nowrap">
                 {sid + 1} / {slidesCount}
               </Text>
-              <CarouseImage src={slide.img} boxSize="full" backgroundSize="cover" width={'760'} height={'400'} />
+              <CarouseImage
+                src={slide.img}
+                boxSize="full"
+                backgroundSize="cover"
+                width={'760'}
+                height={'400'}
+                opacity={currentSlide === sid ? '1' : '0.4'}
+              />
             </Box>
           ))}
         </Flex>

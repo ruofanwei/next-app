@@ -3,7 +3,8 @@ export const arrowStyles: TextProps = {
   cursor: 'pointer',
   pos: 'absolute',
   top: '50%',
-  w: 'auto',
+  left: ['unset', '80%'],
+  right: ['unset', '80%'],
   mt: '-22px',
   p: '16px',
   color: 'white',
@@ -14,6 +15,6 @@ export const arrowStyles: TextProps = {
   userSelect: 'none',
   _hover: {
     opacity: 0.8,
-    bg: 'black',
+    borderRadius: '10',
   },
 };
