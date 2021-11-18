@@ -1,3 +1,4 @@
+import { useSession, signIn, signOut } from 'next-auth/react';
 import {
   Box,
   Flex,
@@ -5,24 +6,18 @@ import {
   IconButton,
   Button,
   Stack,
-  Collapse,
-  Icon,
-  Link,
-  Popover,
-  PopoverTrigger,
-  PopoverContent,
   useColorModeValue,
   useBreakpointValue,
   useDisclosure,
 } from '@chakra-ui/react';
-import { HamburgerIcon, CloseIcon, ChevronDownIcon, ChevronRightIcon } from '@chakra-ui/icons';
+import { HamburgerIcon, CloseIcon } from '@chakra-ui/icons';
 
 import { MobileNav } from './MobileNav';
 import { DesktopNav } from './DesktopNav';
 
 export const Header = () => {
   const { isOpen, onToggle } = useDisclosure();
-
+  const { data: session } = useSession();
   return (
     <Box width="100%">
       <Flex
@@ -57,25 +52,32 @@ export const Header = () => {
             <DesktopNav />
           </Flex>
         </Flex>
-
-        <Stack flex={{ base: 1, md: 0 }} justify={'flex-end'} direction={'row'} spacing={6}>
-          <Button as={'a'} fontSize={'sm'} fontWeight={400} variant={'link'} href={'#'}>
-            Sign In
-          </Button>
-          <Button
-            display={{ base: 'none', md: 'inline-flex' }}
-            fontSize={'sm'}
-            fontWeight={600}
-            color={'white'}
-            bg={'pink.400'}
-            href={'#'}
-            _hover={{
-              bg: 'pink.300',
-            }}
-          >
-            Sign Up
-          </Button>
-        </Stack>
+        {session ? (
+          <Stack flex={{ base: 1, md: 0 }} justify={'flex-end'} direction={'row'} spacing={6}>
+            <Button onClick={() => signOut()} as={'a'} fontSize={'sm'} fontWeight={400} variant={'link'} href={'#'}>
+              Sign Out
+            </Button>
+          </Stack>
+        ) : (
+          <Stack flex={{ base: 1, md: 0 }} justify={'flex-end'} direction={'row'} spacing={6}>
+            <Button onClick={() => signIn()} as={'a'} fontSize={'sm'} fontWeight={400} variant={'link'} href={'#'}>
+              Sign In
+            </Button>
+            <Button
+              display={{ base: 'none', md: 'inline-flex' }}
+              fontSize={'sm'}
+              fontWeight={600}
+              color={'white'}
+              bg={'pink.400'}
+              href={'#'}
+              _hover={{
+                bg: 'pink.300',
+              }}
+            >
+              Sign Up
+            </Button>
+          </Stack>
+        )}
       </Flex>
 
       <MobileNav isOpen={isOpen} />
