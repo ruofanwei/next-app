@@ -1,42 +1,23 @@
 import NextAuth from 'next-auth';
-import Providers from 'next-auth/providers';
-
+import FacebookProvider from 'next-auth/providers/facebook';
+import GoogleProvider from 'next-auth/providers/google';
+import LineProvider from 'next-auth/providers/line';
 export default NextAuth({
-  session: {
-    jwt: true,
-  },
   providers: [
-    Providers.Credentials({
-      async authorize(credentials) {
-        const res = await fetch('http://localhost:8000/auth/login', {
-          method: 'POST',
-          body: JSON.stringify(credentials),
-          headers: {
-            'Content-Type': 'application/json',
-          },
-        });
-
-        const user = await res.json();
-
-        if (res.ok && user) {
-          return user;
-        }
-
-        return null;
+    FacebookProvider({
+      clientId: process.env.FACEBOOK_ID,
+      clientSecret: process.env.FACEBOOK_SECRET,
+    }),
+    GoogleProvider({
+      clientId: process.env.GOOGLE_ID,
+      clientSecret: process.env.GOOGLE_SECRET,
+    }),
+    LineProvider({
+      clientId: process.env.LINE_CHANNEL_ID,
+      clientSecret: process.env.LINE_CHANNEL_SECRET,
+      client: {
+        id_token_signed_response_alg: 'HS256', // --> add this
       },
     }),
   ],
-  // callback
-  callbacks: {
-    async session(session, token) {
-      session.accessToken = token.accessToken;
-      return session;
-    },
-    async jwt(token, user) {
-      if (user) {
-        token.accessToken = user.access_token;
-      }
-      return token;
-    },
-  },
 });

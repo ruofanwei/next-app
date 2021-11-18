@@ -1,5 +1,5 @@
 import type { NextPage } from 'next';
-import CustomContainer from '../components/custom-container';
+
 import { Container } from '../components/Container';
 import { Header } from '../components/Header/index';
 import { Footer } from '../components/Footer';
