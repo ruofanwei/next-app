@@ -6,5 +6,6 @@ namespace NodeJS {
     GOOGLE_SECRET: string;
     LINE_CHANNEL_ID: string;
     LINE_CHANNEL_SECRET: string;
+    SECRET: string;
   }
 }
