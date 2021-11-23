@@ -32,6 +32,10 @@ export default async function auth(req: NextApiRequest, res: NextApiResponse) {
 
   return await NextAuth(req, res, {
     providers,
+    secret: process.env.SECRET,
+    jwt: {
+      secret: process.env.SECRET,
+    },
     // Enable debug messages in the console if you are having problems
     debug: true,
   });
