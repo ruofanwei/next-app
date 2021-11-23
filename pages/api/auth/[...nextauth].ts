@@ -13,6 +13,7 @@ export default async function auth(req: NextApiRequest, res: NextApiResponse) {
     GoogleProvider({
       clientId: process.env.GOOGLE_ID,
       clientSecret: process.env.GOOGLE_SECRET,
+
       authorization: {
         params: {
           prompt: 'consent',
@@ -39,6 +40,26 @@ export default async function auth(req: NextApiRequest, res: NextApiResponse) {
     },
     // Enable debug messages in the console if you are having problems
     debug: true,
+    cookies: {
+      csrfToken: {
+        name: 'next-auth.csrf-token',
+        options: {
+          httpOnly: true,
+          sameSite: 'none',
+          path: '/',
+          secure: true,
+        },
+      },
+      pkceCodeVerifier: {
+        name: 'next-auth.pkce.code_verifier',
+        options: {
+          httpOnly: true,
+          sameSite: 'none',
+          path: '/',
+          secure: true,
+        },
+      },
+    },
     callbacks: {
       redirect({ url, baseUrl }) {
         if (url.startsWith(baseUrl)) return url;
