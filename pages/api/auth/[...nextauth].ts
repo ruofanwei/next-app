@@ -13,13 +13,13 @@ export default async function auth(req: NextApiRequest, res: NextApiResponse) {
     GoogleProvider({
       clientId: process.env.GOOGLE_ID,
       clientSecret: process.env.GOOGLE_SECRET,
-      authorization:
-        'https://accounts.google.com/o/oauth2/v2/auth?' +
-        new URLSearchParams({
+      authorization: {
+        params: {
           prompt: 'consent',
           access_type: 'offline',
           response_type: 'code',
-        }),
+        },
+      },
     }),
     LineProvider({
       clientId: process.env.LINE_CHANNEL_ID,
@@ -40,7 +40,10 @@ export default async function auth(req: NextApiRequest, res: NextApiResponse) {
     // Enable debug messages in the console if you are having problems
     debug: true,
     callbacks: {
-      async session({ session, token, user }) {
+      async signIn({ user, account, profile, email, credentials }) {
+        return true;
+      },
+      async session({ session, token }) {
         // Send properties to the client, like an access_token from a provider.
         session.accessToken = token.accessToken;
         session.refreshToken = token.refreshToken;
@@ -49,7 +52,7 @@ export default async function auth(req: NextApiRequest, res: NextApiResponse) {
         session.id = token.id;
         return session;
       },
-      async jwt({ token, user, account, profile, isNewUser }) {
+      async jwt({ token, user, account }) {
         // Persist the OAuth access_token to the token right after signin
         if (account) {
           token.accessToken = account.access_token;
