@@ -13,6 +13,13 @@ export default async function auth(req: NextApiRequest, res: NextApiResponse) {
     GoogleProvider({
       clientId: process.env.GOOGLE_ID,
       clientSecret: process.env.GOOGLE_SECRET,
+      authorization: {
+        params: {
+          prompt: 'consent',
+          access_type: 'offline',
+          response_type: 'code',
+        },
+      },
     }),
     LineProvider({
       clientId: process.env.LINE_CHANNEL_ID,
@@ -33,6 +40,12 @@ export default async function auth(req: NextApiRequest, res: NextApiResponse) {
     // Enable debug messages in the console if you are having problems
     debug: true,
     callbacks: {
+      redirect({ url, baseUrl }) {
+        if (url.startsWith(baseUrl)) return url;
+        // Allows relative callback URLs
+        else if (url.startsWith('/')) return new URL(url, baseUrl).toString();
+        return baseUrl;
+      },
       async signIn({ user, account, profile, email, credentials }) {
         return true;
       },
