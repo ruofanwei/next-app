@@ -47,6 +47,9 @@ export default async function auth(req: NextApiRequest, res: NextApiResponse) {
         return baseUrl;
       },
       async signIn({ user, account, profile, email, credentials }) {
+        if (account.provider === 'google') {
+          return profile.email_verified;
+        }
         return true;
       },
       async session({ session, token }) {
