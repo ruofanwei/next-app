@@ -13,13 +13,13 @@ export default async function auth(req: NextApiRequest, res: NextApiResponse) {
     GoogleProvider({
       clientId: process.env.GOOGLE_ID,
       clientSecret: process.env.GOOGLE_SECRET,
-      authorization: {
-        params: {
+      authorization:
+        'https://accounts.google.com/o/oauth2/v2/auth?' +
+        new URLSearchParams({
           prompt: 'consent',
           access_type: 'offline',
           response_type: 'code',
-        },
-      },
+        }),
     }),
     LineProvider({
       clientId: process.env.LINE_CHANNEL_ID,
