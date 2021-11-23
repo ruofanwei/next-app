@@ -12,6 +12,10 @@ declare module 'next-auth' {
     name: string;
     image: string;
   }
+
+  interface Profile {
+    email_verified: boolean;
+  }
   interface Session {
     user: {
       /** The user's postal address. */
