@@ -68,7 +68,7 @@ export const Header = () => {
               variant={'link'}
               href={'#'}
             >
-              <a href={`/api/auth/signin`}>Sign in</a>
+              <a href={`/api/auth/signin`}>Sign out</a>
             </Button>
           </Stack>
         ) : (
@@ -84,7 +84,7 @@ export const Header = () => {
               variant={'link'}
               href={'#'}
             >
-              <a href={`/api/auth/signout`}>Sign out</a>
+              <a href={`/api/auth/signout`}>Sign in</a>
             </Button>
             <Button
               display={{ base: 'none', md: 'inline-flex' }}
