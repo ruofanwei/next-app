@@ -5,6 +5,7 @@ import { SessionProvider } from 'next-auth/react';
 import { ChakraProvider } from '@chakra-ui/react';
 import theme from '../chakra/theme';
 import type { AppProps } from 'next/app';
+import { getToken } from 'next-auth/jwt';
 
 function MyApp({ Component, pageProps: { session, ...pageProps } }: AppProps) {
   return (

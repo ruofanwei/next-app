@@ -24,9 +24,6 @@ export default async function auth(req: NextApiRequest, res: NextApiResponse) {
     LineProvider({
       clientId: process.env.LINE_CHANNEL_ID,
       clientSecret: process.env.LINE_CHANNEL_SECRET,
-      client: {
-        id_token_signed_response_alg: 'HS256', // --> add this
-      },
     }),
   ];
 
@@ -36,7 +33,35 @@ export default async function auth(req: NextApiRequest, res: NextApiResponse) {
     jwt: {
       secret: process.env.SECRET,
     },
+    session: {
+      // This is the default. The session is saved in a cookie and never persisted anywhere.
+      strategy: 'jwt',
+    },
     // Enable debug messages in the console if you are having problems
     debug: true,
+    callbacks: {
+      async session({ session, token, user }) {
+        // Send properties to the client, like an access_token from a provider.
+        session.accessToken = token.accessToken;
+        session.refreshToken = token.refreshToken;
+        session.idToken = token.idToken;
+        session.provider = token.provider;
+        session.id = token.id;
+        return session;
+      },
+      async jwt({ token, user, account, profile, isNewUser }) {
+        // Persist the OAuth access_token to the token right after signin
+        if (account) {
+          token.accessToken = account.access_token;
+          token.refreshToken = account.refresh_token;
+          token.idToken = account.id_token;
+          token.provider = account.provider;
+        }
+        if (user) {
+          token.id = user.id.toString();
+        }
+        return token;
+      },
+    },
   });
 }
