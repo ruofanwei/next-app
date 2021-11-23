@@ -39,11 +39,11 @@ export const Buyer = () => {
             </AccordionButton>
             <AccordionPanel>
               <FormControl id="email" isRequired>
-                <FormLabel>Email address</FormLabel>
+                <FormLabel id="FormLabel-1">Email address</FormLabel>
                 <Input placeholder="your-email@example.com" _placeholder={{ color: 'gray.500' }} type="email" />
               </FormControl>
               <FormControl id="password" isRequired>
-                <FormLabel>Password</FormLabel>
+                <FormLabel id="FormLabel-1">Password</FormLabel>
                 <Input type="password" />
               </FormControl>
               <Stack spacing={6}>
