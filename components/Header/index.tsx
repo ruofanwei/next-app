@@ -17,7 +17,10 @@ import { DesktopNav } from './DesktopNav';
 
 export const Header = () => {
   const { isOpen, onToggle } = useDisclosure();
-  const { data: session } = useSession();
+  const { data: session, status } = useSession();
+
+  console.log('session', session);
+  console.log('status', status);
   return (
     <Box width="100%">
       <Flex
@@ -52,16 +55,36 @@ export const Header = () => {
             <DesktopNav />
           </Flex>
         </Flex>
-        {session ? (
+        {session?.user ? (
           <Stack flex={{ base: 1, md: 0 }} justify={'flex-end'} direction={'row'} spacing={6}>
-            <Button onClick={() => signOut()} as={'a'} fontSize={'sm'} fontWeight={400} variant={'link'} href={'#'}>
-              Sign Out
+            <Button
+              onClick={(e) => {
+                e.preventDefault();
+                signOut();
+              }}
+              as={'a'}
+              fontSize={'sm'}
+              fontWeight={400}
+              variant={'link'}
+              href={'#'}
+            >
+              <a href={`/api/auth/signin`}>Sign out</a>
             </Button>
           </Stack>
         ) : (
           <Stack flex={{ base: 1, md: 0 }} justify={'flex-end'} direction={'row'} spacing={6}>
-            <Button onClick={() => signIn()} as={'a'} fontSize={'sm'} fontWeight={400} variant={'link'} href={'#'}>
-              Sign In
+            <Button
+              onClick={(e) => {
+                e.preventDefault();
+                signIn();
+              }}
+              as={'a'}
+              fontSize={'sm'}
+              fontWeight={400}
+              variant={'link'}
+              href={'#'}
+            >
+              <a href={`/api/auth/signout`}>Sign in</a>
             </Button>
             <Button
               display={{ base: 'none', md: 'inline-flex' }}
