@@ -41,6 +41,23 @@ export default async function auth(req: NextApiRequest, res: NextApiResponse) {
     // Enable debug messages in the console if you are having problems
     debug: true,
     cookies: {
+      sessionToken: {
+        name: `next-auth.session-token`,
+        options: {
+          httpOnly: true,
+          sameSite: 'none',
+          path: '/',
+          secure: true,
+        },
+      },
+      callbackUrl: {
+        name: `next-auth.callback-url`,
+        options: {
+          sameSite: 'none',
+          path: '/',
+          secure: true,
+        },
+      },
       csrfToken: {
         name: 'next-auth.csrf-token',
         options: {

@@ -12,3 +12,5 @@ declare module 'next/app' {
     };
   };
 }
+
+declare function require(name: string);
