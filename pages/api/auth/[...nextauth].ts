@@ -4,6 +4,13 @@ import FacebookProvider from 'next-auth/providers/facebook';
 import GoogleProvider from 'next-auth/providers/google';
 import LineProvider from 'next-auth/providers/line';
 
+const GOOGLE_AUTHORIZATION_URL =
+  'https://accounts.google.com/o/oauth2/v2/auth?' +
+  new URLSearchParams({
+    prompt: 'consent',
+    access_type: 'offline',
+    response_type: 'code',
+  });
 export default async function auth(req: NextApiRequest, res: NextApiResponse) {
   const providers = [
     FacebookProvider({
@@ -13,14 +20,7 @@ export default async function auth(req: NextApiRequest, res: NextApiResponse) {
     GoogleProvider({
       clientId: process.env.GOOGLE_ID,
       clientSecret: process.env.GOOGLE_SECRET,
-
-      authorization: {
-        params: {
-          prompt: 'consent',
-          access_type: 'offline',
-          response_type: 'code',
-        },
-      },
+      authorization: GOOGLE_AUTHORIZATION_URL,
     }),
     LineProvider({
       clientId: process.env.LINE_CHANNEL_ID,
@@ -40,43 +40,7 @@ export default async function auth(req: NextApiRequest, res: NextApiResponse) {
     },
     // Enable debug messages in the console if you are having problems
     debug: true,
-    cookies: {
-      sessionToken: {
-        name: `next-auth.session-token`,
-        options: {
-          httpOnly: true,
-          sameSite: 'none',
-          path: '/',
-          secure: true,
-        },
-      },
-      callbackUrl: {
-        name: `next-auth.callback-url`,
-        options: {
-          sameSite: 'none',
-          path: '/',
-          secure: true,
-        },
-      },
-      csrfToken: {
-        name: 'next-auth.csrf-token',
-        options: {
-          httpOnly: true,
-          sameSite: 'none',
-          path: '/',
-          secure: true,
-        },
-      },
-      pkceCodeVerifier: {
-        name: 'next-auth.pkce.code_verifier',
-        options: {
-          httpOnly: true,
-          sameSite: 'none',
-          path: '/',
-          secure: true,
-        },
-      },
-    },
+
     callbacks: {
       redirect({ url, baseUrl }) {
         if (url.startsWith(baseUrl)) return url;
