@@ -54,18 +54,6 @@ export default async function auth(req: NextApiRequest, res: NextApiResponse) {
     // },
 
     callbacks: {
-      redirect({ url, baseUrl }) {
-        if (url.startsWith(baseUrl)) return url;
-        // Allows relative callback URLs
-        else if (url.startsWith('/')) return new URL(url, baseUrl).toString();
-        return baseUrl;
-      },
-      async signIn({ user, account, profile, email, credentials }) {
-        if (account.provider === 'google') {
-          return profile.email_verified;
-        }
-        return true;
-      },
       async session({ session, token }) {
         // Send properties to the client, like an access_token from a provider.
         session.accessToken = token.accessToken;
