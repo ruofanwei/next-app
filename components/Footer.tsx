@@ -34,7 +34,8 @@ export const Footer = () => {
             <Link href={'#'}>聯絡我們</Link>
           </Stack>
           <Stack align={'center'}>
-            <ListHeader>我要開店</ListHeader>
+            <ListHeader>客戶服務</ListHeader>
+            <Link href={'#'}>我要開店</Link>
           </Stack>
           <Stack align={'center'}>
             <ListHeader>系列網站</ListHeader>
@@ -48,10 +49,8 @@ export const Footer = () => {
           <Stack align={'center'}>
             <ListHeader>Follow Us</ListHeader>
             <Link href={'#'}>Facebook</Link>
-            <Link href={'#'}>Twitter</Link>
-            <Link href={'#'}>Dribbble</Link>
             <Link href={'#'}>Instagram</Link>
-            <Link href={'#'}>LinkedIn</Link>
+            <Link href={'#'}>Line</Link>
           </Stack>
         </SimpleGrid>
       </Container>

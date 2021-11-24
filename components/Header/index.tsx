@@ -1,5 +1,6 @@
 import { useSession, signIn, signOut } from 'next-auth/react';
 import { ReactNode } from 'react';
+import Image from 'next/image';
 import {
   Box,
   Flex,
@@ -23,13 +24,13 @@ import { HamburgerIcon, CloseIcon } from '@chakra-ui/icons';
 
 import { MobileNav } from './MobileNav';
 import { DesktopNav } from './DesktopNav';
-
+const Logo = (props: any) => {
+  return <Image alt="logo" src={`https://i.imgur.com/8f8x4Cl.png`} width={145} height={63} />;
+};
 export const Header = () => {
   const { isOpen, onToggle } = useDisclosure();
   const { data: session, status } = useSession();
 
-  console.log('session', session);
-  console.log('status', status);
   return (
     <Box width="100%">
       <Flex
@@ -52,13 +53,7 @@ export const Header = () => {
           />
         </Flex>
         <Flex flex={{ base: 1 }} justify={{ base: 'center', md: 'start' }}>
-          <Text
-            textAlign={useBreakpointValue({ base: 'center', md: 'left' })}
-            fontFamily={'heading'}
-            color={useColorModeValue('gray.800', 'white')}
-          >
-            Logo
-          </Text>
+          <Logo color={useColorModeValue('gray.700', 'white')} />
 
           <Flex display={{ base: 'none', md: 'flex' }} ml={10}>
             <DesktopNav />

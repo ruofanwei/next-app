@@ -1,6 +1,7 @@
 import NextAuth from 'next-auth';
 import { JWT } from 'next-auth/jwt';
 import { Session } from 'next-auth';
+import Providers from 'next-auth/providers';
 
 declare module 'next-auth' {
   /**
@@ -31,5 +32,15 @@ declare module 'next-auth/jwt' {
     idToken?: string;
     accessToken?: string;
     providerId?: string;
+  }
+}
+
+declare module 'next-auth/providers' {
+  interface providers {
+    provider: provider[];
+  }
+  interface provider {
+    id?: string;
+    name?: string;
   }
 }
