@@ -7,41 +7,27 @@ export interface NavItem {
 
 export const NAV_ITEMS: Array<NavItem> = [
   {
-    label: 'Inspiration',
+    label: '常見問題',
     children: [
       {
-        label: 'Explore Design Work',
-        subLabel: 'Trending Design to inspire you',
+        label: 'Explore',
+        subLabel: 'QA',
         href: '#',
       },
       {
-        label: 'New & Noteworthy',
-        subLabel: 'Up-and-coming Designers',
+        label: 'News',
+        subLabel: 'today news',
         href: '#',
       },
     ],
   },
   {
-    label: 'Find Work',
+    label: 'Search',
     children: [
       {
-        label: 'Job Board',
-        subLabel: 'Find your dream design job',
-        href: '#',
-      },
-      {
-        label: 'Freelance Projects',
-        subLabel: 'An exclusive list for contract work',
+        label: 'find product',
         href: '#',
       },
     ],
-  },
-  {
-    label: 'Learn Design',
-    href: '#',
-  },
-  {
-    label: 'Hire Designers',
-    href: '#',
   },
 ];

@@ -21,16 +21,18 @@ import {
   useDisclosure,
 } from '@chakra-ui/react';
 import { HamburgerIcon, CloseIcon } from '@chakra-ui/icons';
-
+import { IoPerson } from 'react-icons/io5';
 import { MobileNav } from './MobileNav';
 import { DesktopNav } from './DesktopNav';
 const Logo = (props: any) => {
-  return <Image alt="logo" src={`https://i.imgur.com/8f8x4Cl.png`} width={145} height={63} />;
+  return <Text>Logo</Text>;
 };
 export const Header = () => {
   const { isOpen, onToggle } = useDisclosure();
   const { data: session, status } = useSession();
-
+  console.log('session', session);
+  console.log('status', status);
+  console.log(session?.user?.image);
   return (
     <Box width="100%">
       <Flex
@@ -63,7 +65,7 @@ export const Header = () => {
           <Stack flex={{ base: 1, md: 0 }} justify={'flex-end'} direction={'row'} spacing={6}>
             <Menu>
               <MenuButton as={Button} rounded={'full'} variant={'link'} cursor={'pointer'} minW={0}>
-                <Avatar size={'sm'} src={'https://i.imgur.com/QZgMts0.png'} />
+                <Avatar size={'sm'} src={`${session?.user.image}`} />
               </MenuButton>
               <MenuList>
                 <MenuItem
@@ -82,20 +84,20 @@ export const Header = () => {
             </Menu>
           </Stack>
         ) : (
-          <Stack flex={{ base: 1, md: 0 }} justify={'flex-end'} direction={'row'} spacing={6}>
-            <Button
-              onClick={(e) => {
-                e.preventDefault();
-                signIn();
-              }}
-              as={'a'}
-              fontSize={'sm'}
-              fontWeight={400}
-              variant={'link'}
-              href={'#'}
-            >
-              <a href={`/api/auth/signout`}>Sign in</a>
-            </Button>
+          <Stack
+            flex={{ base: 1, md: 0 }}
+            justify={'flex-end'}
+            direction={'row'}
+            align="center"
+            onClick={(e) => {
+              e.preventDefault();
+              signIn();
+            }}
+          >
+            <a href={`/api/auth/signout`}>
+              <IoPerson />
+            </a>
+            <Text cursor="pointer">登入</Text>
           </Stack>
         )}
       </Flex>
