@@ -7,9 +7,6 @@ export interface NavItem {
 
 export const NAV_ITEMS: Array<NavItem> = [
   {
-    label: '找營地',
-  },
-  {
     label: '常見問題',
   },
   {

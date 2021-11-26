@@ -1,5 +1,4 @@
 import { useSession, signIn, signOut } from 'next-auth/react';
-
 import React, { useRef, ReactNode, ReactText } from 'react';
 import Image from 'next/image';
 import {
@@ -38,6 +37,8 @@ import { IoPerson } from 'react-icons/io5';
 import { FiLogOut } from 'react-icons/fi';
 import { FiHome, FiTrendingUp, FiCompass, FiAward, FiUser, FiFileText, FiGift, FiServer } from 'react-icons/fi';
 import { IconType } from 'react-icons';
+import { FaShoppingCart } from 'react-icons/fa';
+import { GrSearch } from 'react-icons/gr';
 interface LinkItemProps {
   name: string;
   icon: IconType;
@@ -56,9 +57,21 @@ export const SignInNav = () => {
   const btnRef = useRef();
   return (
     <Stack flex={{ base: 1, md: 0 }} justify={'flex-end'} direction={'row'} spacing={6}>
-      <HStack minW={{ base: 'none', md: '40' }} cursor="pointer" onClick={onOpen}>
+      <HStack minW={{ base: 'none', md: '20' }} cursor="pointer">
+        <GrSearch />
+        <Text display={{ base: 'none', md: 'flex' }} cursor="pointer">
+          找營地
+        </Text>
+      </HStack>
+      <HStack minW={{ base: 'none', md: '20' }} cursor="pointer" onClick={onOpen}>
         <IoPerson />
         <Text display={{ base: 'none', md: 'flex' }}>{session?.user.name}</Text>
+      </HStack>
+      <HStack minW={{ base: 'none', md: '20' }} cursor="pointer">
+        <FaShoppingCart />
+        <Text display={{ base: 'none', md: 'flex' }} cursor="pointer">
+          購物車
+        </Text>
       </HStack>
       <Drawer isOpen={isOpen} placement="right" onClose={onClose}>
         <DrawerOverlay />

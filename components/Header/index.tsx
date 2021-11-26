@@ -77,9 +77,9 @@ export const Header = () => {
           <SignInNav />
         ) : (
           <HStack flex={{ base: 0, md: 'none' }} justify={'flex-end'} direction={'row'} align="center">
-            <Flex minW={{ base: 'none', md: '20' }} align="center" justify={'space-between'}>
+            <Flex align="center" justify={'space-between'}>
               <GrSearch />
-              <Text display={{ base: 'none', md: 'flex' }} cursor="pointer">
+              <Text ml={2} display={{ base: 'none', md: 'flex' }} cursor="pointer">
                 找營地
               </Text>
             </Flex>
@@ -97,9 +97,9 @@ export const Header = () => {
                 登入/加入會員
               </Text>
             </Flex>
-            <Flex align="center" justify={'space-between'} minW={{ base: 'none', md: '20' }}>
+            <Flex align="center" justify={'space-between'}>
               <FaShoppingCart />
-              <Text display={{ base: 'none', md: 'flex' }} cursor="pointer">
+              <Text ml={2} display={{ base: 'none', md: 'flex' }} cursor="pointer">
                 購物車
               </Text>
             </Flex>

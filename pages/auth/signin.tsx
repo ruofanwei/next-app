@@ -28,7 +28,13 @@ const ProviderIcon = (props: any) => {
   switch (props.name) {
     case 'Google':
       return (
-        <Button onClick={handleClick} leftIcon={<FcGoogle />} w={'full'} variant={'outline'}>
+        <Button
+          onClick={handleClick}
+          leftIcon={<FcGoogle />}
+          w={'full'}
+          variant={'outline'}
+          fontSize={{ base: '14px', md: '20px' }}
+        >
           <Center>
             <Text>Continue with {props.name}</Text>
           </Center>
@@ -36,7 +42,13 @@ const ProviderIcon = (props: any) => {
       );
     case 'Facebook':
       return (
-        <Button onClick={handleClick} leftIcon={<FaFacebook />} w={'full'} colorScheme={'facebook'}>
+        <Button
+          onClick={handleClick}
+          leftIcon={<FaFacebook />}
+          w={'full'}
+          colorScheme={'facebook'}
+          fontSize={{ base: '14px', md: '20px' }}
+        >
           <Center>
             <Text>Continue with {props.name}</Text>
           </Center>
@@ -44,7 +56,13 @@ const ProviderIcon = (props: any) => {
       );
     case 'LINE':
       return (
-        <Button onClick={handleClick} leftIcon={<FaLine />} w={'full'} variant={'outline'}>
+        <Button
+          onClick={handleClick}
+          leftIcon={<FaLine color="green" />}
+          variant={'outline'}
+          w="full"
+          fontSize={{ base: '14px', md: '20px' }}
+        >
           <Center>
             <Text>Continue with {props.name}</Text>
           </Center>
@@ -64,9 +82,11 @@ function SignIn({ providers }: ProviderProps) {
 
   return (
     <Center p={8}>
-      <Stack spacing={2} align={'center'} maxW={'md'} w={'full'}>
+      <Stack spacing={2} align={'center'} maxW={'xl'} w={'full'} bg="gray.100" p={'10'} borderRadius="10">
         {Object.values(providers).map((provider) => (
-          <Box key={provider.name}>{ProviderIcon(provider)}</Box>
+          <Box key={provider.name} w="full">
+            {ProviderIcon(provider)}
+          </Box>
         ))}
       </Stack>
     </Center>
