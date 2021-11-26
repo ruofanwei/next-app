@@ -66,7 +66,7 @@ export const Header = () => {
             aria-label={'Toggle Navigation'}
           />
         </Flex>
-        <Flex flex={{ base: 1 }} justify={{ base: 'center', md: 'start' }}>
+        <Flex flex={{ base: 3 }} justify={{ base: 'start', md: 'start' }}>
           <Logo color={useColorModeValue('gray.700', 'white')} />
 
           <Flex display={{ base: 'none', md: 'flex' }} ml={10}>
