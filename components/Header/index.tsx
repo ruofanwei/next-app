@@ -1,9 +1,17 @@
 import { useSession, signIn, signOut } from 'next-auth/react';
-import { ReactNode } from 'react';
+
+import React, { useRef, ReactNode } from 'react';
 import Image from 'next/image';
 import {
   Box,
   Flex,
+  Drawer,
+  DrawerBody,
+  DrawerFooter,
+  DrawerHeader,
+  DrawerOverlay,
+  DrawerContent,
+  DrawerCloseButton,
   Avatar,
   HStack,
   Link,
@@ -24,12 +32,14 @@ import { HamburgerIcon, CloseIcon } from '@chakra-ui/icons';
 import { IoPerson } from 'react-icons/io5';
 import { MobileNav } from './MobileNav';
 import { DesktopNav } from './DesktopNav';
+import { SignInNav } from './SignInNav';
 const Logo = (props: any) => {
   return <Text>Logo</Text>;
 };
 export const Header = () => {
-  const { isOpen, onToggle } = useDisclosure();
+  const { isOpen, onOpen, onClose, onToggle } = useDisclosure();
   const { data: session, status } = useSession();
+  const btnRef = useRef();
   console.log('session', session);
   console.log('status', status);
   console.log(session?.user?.image);
@@ -62,30 +72,11 @@ export const Header = () => {
           </Flex>
         </Flex>
         {session?.user ? (
-          <Stack flex={{ base: 1, md: 0 }} justify={'flex-end'} direction={'row'} spacing={6}>
-            <Menu>
-              <MenuButton as={Button} rounded={'full'} variant={'link'} cursor={'pointer'} minW={0}>
-                <Avatar size={'sm'} src={`${session?.user.image}`} />
-              </MenuButton>
-              <MenuList>
-                <MenuItem
-                  onClick={(e) => {
-                    e.preventDefault();
-                    signOut();
-                  }}
-                >
-                  <a href={`/api/auth/signout`}>Sign out</a>
-                </MenuItem>
-                <MenuItem>
-                  <a href={`/profile`}>Profile</a>
-                </MenuItem>
-                <MenuDivider />
-              </MenuList>
-            </Menu>
-          </Stack>
+          <SignInNav />
         ) : (
           <Stack
             flex={{ base: 1, md: 0 }}
+            minW={20}
             justify={'flex-end'}
             direction={'row'}
             align="center"
