@@ -29,46 +29,66 @@ const ProviderIcon = (props: any) => {
     case 'Google':
       return (
         <Button
+          py={6}
           onClick={handleClick}
           leftIcon={<FcGoogle />}
           w={'full'}
-          variant={'outline'}
+          bg="white"
+          shadow="md"
+          variant="ghost"
+          colorScheme={'red'}
           fontSize={{ base: '14px', md: '20px' }}
         >
           <Center>
-            <Text>Continue with {props.name}</Text>
+            <Text color="blackAlpha.500">Continue with {props.name}</Text>
           </Center>
         </Button>
       );
     case 'Facebook':
       return (
         <Button
+          py={6}
           onClick={handleClick}
           leftIcon={<FaFacebook />}
           w={'full'}
+          bg="white"
+          variant="ghost"
+          shadow="md"
           colorScheme={'facebook'}
           fontSize={{ base: '14px', md: '20px' }}
         >
           <Center>
-            <Text>Continue with {props.name}</Text>
+            <Text color="blackAlpha.500">Continue with {props.name}</Text>
           </Center>
         </Button>
       );
     case 'LINE':
       return (
         <Button
+          py={6}
+          shadow="md"
+          colorScheme={'green'}
           onClick={handleClick}
+          bg="white"
           leftIcon={<FaLine color="green" />}
-          variant={'outline'}
+          variant="ghost"
           w="full"
           fontSize={{ base: '14px', md: '20px' }}
         >
           <Center>
-            <Text>Continue with {props.name}</Text>
+            <Text color="blackAlpha.500">Continue with {props.name}</Text>
           </Center>
         </Button>
       );
   }
+};
+
+const Logo = (props: any) => {
+  return (
+    <Text textAlign="center" p={10}>
+      Logo
+    </Text>
+  );
 };
 
 function SignIn({ providers }: ProviderProps) {
@@ -81,8 +101,9 @@ function SignIn({ providers }: ProviderProps) {
   }, []);
 
   return (
-    <Center p={8}>
-      <Stack spacing={2} align={'center'} maxW={'xl'} w={'full'} bg="gray.100" p={'10'} borderRadius="10">
+    <Center p={8} h="400px" flexDirection="column">
+      <Logo />
+      <Stack spacing={7} align="stretch" maxW={'xl'} w={'full'} bg="#F8F8F8" p={'10'} borderRadius="10" h="full">
         {Object.values(providers).map((provider) => (
           <Box key={provider.name} w="full">
             {ProviderIcon(provider)}
