@@ -7,27 +7,24 @@ export interface NavItem {
 
 export const NAV_ITEMS: Array<NavItem> = [
   {
-    label: '常見問題',
-    children: [
-      {
-        label: 'Explore',
-        subLabel: 'QA',
-        href: '#',
-      },
-      {
-        label: 'News',
-        subLabel: 'today news',
-        href: '#',
-      },
-    ],
+    label: '找營地',
   },
   {
-    label: 'Search',
+    label: '常見問題',
+  },
+  {
+    label: '最新消息',
+  },
+  {
+    label: '我要開店',
+  },
+  /*{
+    label: '常見問題',
     children: [
       {
         label: 'find product',
         href: '#',
       },
     ],
-  },
+  },*/
 ];

@@ -56,7 +56,10 @@ export const SignInNav = () => {
   const btnRef = useRef();
   return (
     <Stack flex={{ base: 1, md: 0 }} justify={'flex-end'} direction={'row'} spacing={6}>
-      <IoPerson onClick={onOpen} cursor="pointer" />
+      <HStack minW={{ base: 'none', md: '40' }} cursor="pointer" onClick={onOpen}>
+        <IoPerson />
+        <Text display={{ base: 'none', md: 'flex' }}>{session?.user.name}</Text>
+      </HStack>
       <Drawer isOpen={isOpen} placement="right" onClose={onClose}>
         <DrawerOverlay />
         <DrawerContent borderTopLeftRadius="12px" borderBottomLeftRadius="12px">
@@ -106,8 +109,6 @@ const SidebarContent = ({ onClose, ...rest }: SidebarProps) => {
     <Box
       transition="3s ease"
       bg={useColorModeValue('white', 'blue.200')}
-      borderRight="1px"
-      borderRightColor={useColorModeValue('blue.200', 'blue.200')}
       w={{ base: 'full', md: 60 }}
       pos="fixed"
       h="full"
@@ -115,7 +116,7 @@ const SidebarContent = ({ onClose, ...rest }: SidebarProps) => {
     >
       <Flex alignItems="center" justifyContent="space-between"></Flex>
       {LinkItems.map((link) => (
-        <NavItem key={link.name} icon={link.icon}>
+        <NavItem key={link.name} icon={link.icon} maxW="60">
           {link.name}
         </NavItem>
       ))}

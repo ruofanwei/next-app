@@ -30,6 +30,8 @@ import {
 } from '@chakra-ui/react';
 import { HamburgerIcon, CloseIcon } from '@chakra-ui/icons';
 import { IoPerson } from 'react-icons/io5';
+import { GrSearch } from 'react-icons/gr';
+import { FaShoppingCart } from 'react-icons/fa';
 import { MobileNav } from './MobileNav';
 import { DesktopNav } from './DesktopNav';
 import { SignInNav } from './SignInNav';
@@ -74,22 +76,34 @@ export const Header = () => {
         {session?.user ? (
           <SignInNav />
         ) : (
-          <Stack
-            flex={{ base: 1, md: 0 }}
-            minW={20}
-            justify={'flex-end'}
-            direction={'row'}
-            align="center"
-            onClick={(e) => {
-              e.preventDefault();
-              signIn();
-            }}
-          >
-            <a href={`/api/auth/signout`}>
+          <HStack flex={{ base: 0, md: 'none' }} justify={'flex-end'} direction={'row'} align="center">
+            <Flex minW={{ base: 'none', md: '20' }} align="center" justify={'space-between'}>
+              <GrSearch />
+              <Text display={{ base: 'none', md: 'flex' }} cursor="pointer">
+                找營地
+              </Text>
+            </Flex>
+
+            <Flex
+              align="center"
+              justify={'space-between'}
+              onClick={(e) => {
+                e.preventDefault();
+                signIn();
+              }}
+            >
               <IoPerson />
-            </a>
-            <Text cursor="pointer">登入</Text>
-          </Stack>
+              <Text ml={2} display={{ base: 'none', md: 'flex' }} cursor="pointer">
+                登入/加入會員
+              </Text>
+            </Flex>
+            <Flex align="center" justify={'space-between'} minW={{ base: 'none', md: '20' }}>
+              <FaShoppingCart />
+              <Text display={{ base: 'none', md: 'flex' }} cursor="pointer">
+                購物車
+              </Text>
+            </Flex>
+          </HStack>
         )}
       </Flex>
 

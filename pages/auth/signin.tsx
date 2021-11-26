@@ -30,7 +30,7 @@ const ProviderIcon = (props: any) => {
       return (
         <Button onClick={handleClick} leftIcon={<FcGoogle />} w={'full'} variant={'outline'}>
           <Center>
-            <Text>Sign in with {props.name}</Text>
+            <Text>Continue with {props.name}</Text>
           </Center>
         </Button>
       );
@@ -38,7 +38,7 @@ const ProviderIcon = (props: any) => {
       return (
         <Button onClick={handleClick} leftIcon={<FaFacebook />} w={'full'} colorScheme={'facebook'}>
           <Center>
-            <Text>Sign in with {props.name}</Text>
+            <Text>Continue with {props.name}</Text>
           </Center>
         </Button>
       );
@@ -46,7 +46,7 @@ const ProviderIcon = (props: any) => {
       return (
         <Button onClick={handleClick} leftIcon={<FaLine />} w={'full'} variant={'outline'}>
           <Center>
-            <Text>Sign in with {props.name}</Text>
+            <Text>Continue with {props.name}</Text>
           </Center>
         </Button>
       );
