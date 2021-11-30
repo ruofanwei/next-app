@@ -16,7 +16,7 @@ import {
 
 export const Order = () => {
   return (
-    <Box maxW={'445px'} w={'full'} bg={'white'} rounded={'md'} p={6}>
+    <Box w={{ base: '100%', md: 'md' }} bg={'white'}>
       <Accordion defaultIndex={[0]} allowMultiple>
         <AccordionItem>
           <AccordionButton color={'gray.700'} fontSize={'2xl'} fontFamily={'body'}>

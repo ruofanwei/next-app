@@ -2,25 +2,16 @@ import React, { useEffect, useState } from 'react';
 import { Tabs, TabList, TabPanels, Tab, TabPanel, Heading } from '@chakra-ui/react';
 import { PhotoCard } from './PhotoCard';
 import { ProductCard } from './ProductCard';
-export const CustomTab = () => {
-  const data = [
-    {
-      label: '精選主題',
-      content: 'Perhaps the greatest dish ever invented.',
-    },
-    {
-      label: '熱門營地',
-      content: 'Perhaps the greatest dish ever invented.',
-    },
-    {
-      label: '最新上架',
-      content: 'Perhaps the greatest dish ever invented.',
-    },
-  ];
+import { dataType } from './Main';
+interface LayoutProps {
+  children: dataType[];
+}
+
+export const CustomTab = ({ children }: LayoutProps) => {
   return (
     <Tabs>
       <TabList>
-        {data.map((tab, index) => (
+        {children?.map((tab, index) => (
           <Tab key={index}>{tab.label}</Tab>
         ))}
       </TabList>

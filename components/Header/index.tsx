@@ -5,21 +5,7 @@ import Image from 'next/image';
 import {
   Box,
   Flex,
-  Drawer,
-  DrawerBody,
-  DrawerFooter,
-  DrawerHeader,
-  DrawerOverlay,
-  DrawerContent,
-  DrawerCloseButton,
-  Avatar,
   HStack,
-  Link,
-  Menu,
-  MenuButton,
-  MenuList,
-  MenuItem,
-  MenuDivider,
   Text,
   IconButton,
   Button,
@@ -42,9 +28,7 @@ export const Header = () => {
   const { isOpen, onOpen, onClose, onToggle } = useDisclosure();
   const { data: session, status } = useSession();
   const btnRef = useRef();
-  console.log('session', session);
-  console.log('status', status);
-  console.log(session?.user?.image);
+
   return (
     <Box width="100%">
       <Flex

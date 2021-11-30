@@ -47,12 +47,6 @@ export default async function auth(req: NextApiRequest, res: NextApiResponse) {
       newUser: '/auth/new-user',
     },
 
-    // theme: {
-    //   colorScheme: 'auto', // "auto" | "dark" | "light"
-    //   brandColor: '#67b246', // Hex color value
-    //   logo: 'https://i.imgur.com/8f8x4Cl.png',
-    // },
-
     callbacks: {
       async session({ session, token }) {
         // Send properties to the client, like an access_token from a provider.

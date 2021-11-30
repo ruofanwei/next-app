@@ -1,27 +1,45 @@
 import { useState, SyntheticEvent } from 'react';
 import { useRouter } from 'next/router';
-import { useColorMode, Spacer, Button, Heading, Text, Link, Divider, Flex, Box } from '@chakra-ui/react';
-import CustomContainer from '../components/custom-container';
+import {
+  useColorMode,
+  Spacer,
+  Button,
+  Heading,
+  Text,
+  Link,
+  Divider,
+  Flex,
+  Box,
+  useBreakpointValue,
+  VStack,
+} from '@chakra-ui/react';
+import CustomContainer, { IMultiContainerProps } from '../components/custom-container';
 import { Buyer } from '../components/Buyer';
+import Paycard from '../components/Paycard';
 import { Order } from '../components/Order';
 import { Header } from '../components/Header/index';
 import { Container } from '../components/Container';
 const Checkout = () => {
-  const { colorMode, toggleColorMode } = useColorMode();
   return (
     <Container height="100vh">
       <Header />
-
-      <CustomContainer variant="solid" size="3/4" colorScheme="gray" overflow="auto" margin="auto">
-        <Flex py={[0, 5, 10]} direction={{ base: 'column-reverse', md: 'row' }}>
+      <Container bg="gray.200" overflow="auto" margin="auto" minH="full">
+        <Flex
+          py={[0, 0, 5]}
+          direction={{ base: 'column', md: 'row' }}
+          m="auto"
+          justify="space-around"
+          w={{ md: 'full' }}
+        >
           <Box>
             <Buyer />
-            <Buyer />
+
+            <Paycard />
           </Box>
-          <Spacer />
+
           <Order />
         </Flex>
-      </CustomContainer>
+      </Container>
     </Container>
   );
 };

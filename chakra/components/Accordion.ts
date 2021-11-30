@@ -9,6 +9,12 @@ const Accordion = {
         bg: 'unset',
       },
     },
+    container: {
+      borderTopWidth: 'none',
+      _last: {
+        borderBottomWidth: 'none',
+      },
+    },
   },
 };
 export default Accordion;
