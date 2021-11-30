@@ -22,7 +22,7 @@ import {
 import Info from '../public/svg/Info.svg';
 import Point from '../public/svg/Point.svg';
 import Edit from '../public/svg/Edit.svg';
-import Garbage from '../public/svg/Garbage.svg';
+import Delete from '../public/svg/Delete.svg';
 export const Order = () => {
   const allowToggle = useBreakpointValue({ base: true, md: false });
   return (
@@ -51,7 +51,7 @@ export const Order = () => {
           <Text color="gray.500" fontSize="sm">
             NT$ 1800
           </Text>
-          <Garbage />
+          <Delete />
         </HStack>
         <VStack borderBottomWidth={1} w="full">
           <HStack w="full" justify="space-between">
