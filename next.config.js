@@ -5,6 +5,7 @@
  **/
 const nextConfig = {
   reactStrictMode: true,
+  presets: [require.resolve('next/babel')],
   images: {
     formats: ['image/avif', 'image/webp'],
     domains: ['i.imgur.com', 'images.pexels.com', 'res.cloudinary.com', 'images.unsplash.com'],

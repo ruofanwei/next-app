@@ -95,7 +95,7 @@ const Paycard = () => {
                   信用卡號碼
                 </FormLabel>
                 <Input placeholder="信用卡號碼" type="text" />
-                <HStack W="100%" justify="flex-end" mt={2}>
+                <HStack w="100%" justify="flex-end" mt={2}>
                   <JCB />
                   <VISA />
                   <Master />

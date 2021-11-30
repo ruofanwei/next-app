@@ -18,10 +18,11 @@ import {
   Input,
   Button,
 } from '@chakra-ui/react';
-import Garbage from '../public/svg/Garbage.svg';
+
 import Info from '../public/svg/Info.svg';
 import Point from '../public/svg/Point.svg';
 import Edit from '../public/svg/Edit.svg';
+import Garbage from '../public/svg/Garbage.svg';
 export const Order = () => {
   const allowToggle = useBreakpointValue({ base: true, md: false });
   return (
