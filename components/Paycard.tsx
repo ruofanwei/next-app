@@ -23,23 +23,32 @@ import {
   AccordionPanel,
   VStack,
   useBreakpointValue,
+  Checkbox,
+  Icon,
 } from '@chakra-ui/react';
 import { MdPayment, MdOutlineAtm } from 'react-icons/md';
 import { IoStorefront } from 'react-icons/io5';
+import { FaCcMastercard, FaCcJcb, FaCcVisa } from 'react-icons/fa';
+import VISA from '../public/svg/VISA.svg';
+import JCB from '../public/svg/JCB.svg';
+import Master from '../public/svg/Master.svg';
+import Atm from '../public/svg/Atm.svg';
+import Creditcard from '../public/svg/Creditcard.svg';
+import Store from '../public/svg/Store.svg';
 
 const Paycard = () => {
   const allowToggle = useBreakpointValue({ base: true, md: false });
   const paymentData = [
     {
-      icon: <MdPayment />,
+      icon: <Creditcard />,
       name: '信用卡',
     },
     {
-      icon: <IoStorefront />,
+      icon: <Store />,
       name: '超商付款',
     },
     {
-      icon: <MdOutlineAtm size={30} />,
+      icon: <Atm />,
       name: 'ATM/網路轉帳',
     },
   ];
@@ -59,15 +68,20 @@ const Paycard = () => {
         <Accordion allowToggle={allowToggle} defaultIndex={[0]}>
           <AccordionItem>
             <AccordionButton
-              lineHeight={1.1}
-              color="gray.200"
-              fontSize={{ base: '2xl', md: '3xl' }}
-              _expanded={{ color: 'black' }}
+              lineHeight={3}
+              fontSize={{ base: 'md', md: 'lg' }}
+              borderBottomWidth={{ base: 'none', md: '1px' }}
+              fontWeight="500"
             >
-              2. 選擇付款
+              <Box as={'span'} display={{ base: 'block', md: 'none' }}>
+                2.{' '}
+              </Box>
+              選擇付款
             </AccordionButton>
-            <AccordionPanel p={10}>
-              <Text>請選擇你想要支付的方式</Text>
+            <AccordionPanel p={{ base: '5', md: '5' }}>
+              <Text fontSize={{ base: 'sm', md: 'md' }} fontWeight="400">
+                請選擇你想要支付的方式
+              </Text>
               <Grid display="grid" templateColumns="repeat(3, 1fr)" gap={2} mb={2}>
                 {paymentData.map((data, id) => (
                   <VStack key={id} borderWidth="1px" borderRadius="10px" borderColor="gray.200" p={1} spacing={3}>
@@ -76,24 +90,38 @@ const Paycard = () => {
                   </VStack>
                 ))}
               </Grid>
-              <FormControl id="payment" isRequired>
-                <Input placeholder="信用卡號碼" _placeholder={{ color: 'gray.500' }} type="email" />
+              <FormControl id="payment" isRequired p={2}>
+                <FormLabel id="FormLabel-1" fontSize={{ base: 'sm', md: 'md' }} fontWeight="400" color="gray.400">
+                  信用卡號碼
+                </FormLabel>
+                <Input placeholder="信用卡號碼" type="text" />
+                <HStack W="100%" justify="flex-end" mt={2}>
+                  <JCB />
+                  <VISA />
+                  <Master />
+                </HStack>
+                <FormLabel id="FormLabel-1" fontSize={{ base: 'sm', md: 'md' }} fontWeight="400" color="gray.400">
+                  姓名
+                </FormLabel>
+                <Input type="text" placeholder="信用卡持有人姓名" />
+
+                <Flex alignItems="flex-end">
+                  <Box>
+                    <FormLabel id="FormLabel-1" fontSize={{ base: 'sm', md: 'md' }} fontWeight="400" color="gray.400">
+                      信用卡有效年月
+                    </FormLabel>
+                    <Input placeholder="月份 / 年" _placeholder={{ color: 'gray.500' }} type="text" />
+                  </Box>
+
+                  <Input placeholder="卡片末三碼" _placeholder={{ color: 'gray.500' }} type="text" />
+                </Flex>
               </FormControl>
-              <FormControl id="password" isRequired>
-                <FormLabel id="FormLabel-1">Password</FormLabel>
-                <Input type="password" />
-              </FormControl>
-              <Stack spacing={6} mt={3}>
-                <Button
-                  bg={'blue.400'}
-                  color={'white'}
-                  _hover={{
-                    bg: 'blue.500',
-                  }}
-                >
-                  Submit
-                </Button>
-              </Stack>
+              <HStack spacing={6} p={3}>
+                <Checkbox />
+                <Text color="gray.400" fontSize={{ base: 'sm', md: 'md' }}>
+                  本人同意記住結帳資訊，以利下次支付。
+                </Text>
+              </HStack>
             </AccordionPanel>
           </AccordionItem>
         </Accordion>

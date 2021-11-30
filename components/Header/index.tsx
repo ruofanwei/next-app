@@ -60,7 +60,7 @@ export const Header = () => {
         {session?.user ? (
           <SignInNav />
         ) : (
-          <HStack flex={{ base: 0, md: 'none' }} justify={'flex-end'} direction={'row'} align="center">
+          <HStack flex={{ base: 0, md: 'none' }} justify={'flex-end'} direction={'row'} align="center" fontSize="sm">
             <Flex align="center" justify={'space-between'}>
               <GrSearch />
               <Text ml={2} display={{ base: 'none', md: 'flex' }} cursor="pointer">
