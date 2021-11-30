@@ -15,27 +15,27 @@ import {
   AccordionIcon,
   Text,
   Textarea,
+  useBreakpointValue,
 } from '@chakra-ui/react';
 
 export const Buyer = () => {
+  const allowToggle = useBreakpointValue({ base: true, md: false });
   return (
     <Flex align={'stretch'} justify={'stretch'} lineHeight="taller" w="100%">
       <Stack
-        //spacing={{base: 'none' , md: '4'}}
         w={{ base: '100%', md: '900px' }}
-        //maxW={'md'}
         bg={useColorModeValue('white', 'gray.700')}
         rounded={{ base: 'none', md: 'xl' }}
         boxShadow={'lg'}
         p={{ base: 'none', md: '5' }}
         my={{ base: 'none', md: '1' }}
       >
-        <Accordion defaultIndex={[0]} allowMultiple>
+        <Accordion allowToggle={allowToggle} defaultIndex={[0]}>
           <AccordionItem>
             <AccordionButton lineHeight={1.1} fontSize={{ base: '2xl', md: '3xl' }}>
               1. 預約資料
             </AccordionButton>
-            <AccordionPanel>
+            <AccordionPanel p={10}>
               <FormControl id="name" isRequired>
                 <FormLabel id="FormLabel-1">訂購者姓名</FormLabel>
                 <Input variant="flushed" placeholder="訂購者姓名" _placeholder={{ color: 'gray.500' }} type="text" />
@@ -53,8 +53,10 @@ export const Buyer = () => {
                 <Input variant="flushed" placeholder="如果您有特別需要附註或說明，請在此填寫" type="text" />
               </FormControl>
               <Text>露營訂位服務條款</Text>
-              <Textarea placeholder="服務條款" />
-              <Stack spacing={6}>
+              <Box borderWidth={1} borderRadius={1}>
+                服務條款 ...{' '}
+              </Box>
+              <Stack spacing={6} mt={3}>
                 <Button
                   bg={'blue.400'}
                   color={'white'}

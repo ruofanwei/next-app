@@ -22,11 +22,13 @@ import {
   AccordionButton,
   AccordionPanel,
   VStack,
+  useBreakpointValue,
 } from '@chakra-ui/react';
-import { MdPayment, MdAtm } from 'react-icons/md';
+import { MdPayment, MdOutlineAtm } from 'react-icons/md';
 import { IoStorefront } from 'react-icons/io5';
 
 const Paycard = () => {
+  const allowToggle = useBreakpointValue({ base: true, md: false });
   const paymentData = [
     {
       icon: <MdPayment />,
@@ -37,7 +39,7 @@ const Paycard = () => {
       name: '超商付款',
     },
     {
-      icon: <MdAtm />,
+      icon: <MdOutlineAtm size={30} />,
       name: 'ATM/網路轉帳',
     },
   ];
@@ -54,7 +56,7 @@ const Paycard = () => {
         p={{ base: 'none', md: '5' }}
         my={{ base: 'none', md: '1' }}
       >
-        <Accordion defaultIndex={[0]} allowMultiple>
+        <Accordion allowToggle={allowToggle} defaultIndex={[0]}>
           <AccordionItem>
             <AccordionButton
               lineHeight={1.1}
@@ -64,11 +66,11 @@ const Paycard = () => {
             >
               2. 選擇付款
             </AccordionButton>
-            <AccordionPanel>
+            <AccordionPanel p={10}>
               <Text>請選擇你想要支付的方式</Text>
-              <Grid display="grid" templateColumns="repeat(3, 1fr)" gap={2}>
+              <Grid display="grid" templateColumns="repeat(3, 1fr)" gap={2} mb={2}>
                 {paymentData.map((data, id) => (
-                  <VStack key={id} borderWidth="1px" borderRadius="10px" borderColor="gray.400" p={1} spacing={3}>
+                  <VStack key={id} borderWidth="1px" borderRadius="10px" borderColor="gray.200" p={1} spacing={3}>
                     <Box m="auto">{data.icon}</Box>
                     <Text fontSize="xs">{data.name}</Text>
                   </VStack>
@@ -81,7 +83,7 @@ const Paycard = () => {
                 <FormLabel id="FormLabel-1">Password</FormLabel>
                 <Input type="password" />
               </FormControl>
-              <Stack spacing={6}>
+              <Stack spacing={6} mt={3}>
                 <Button
                   bg={'blue.400'}
                   color={'white'}
