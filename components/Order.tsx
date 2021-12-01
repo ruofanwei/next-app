@@ -40,9 +40,15 @@ export const Order = () => {
       <Box as="p" textAlign="start" color={'gray.400'} fontSize="md">
         南投縣中寮鄉和興村永樂路134之2號
       </Box>
-      <Box as="p" textAlign="start" color={'blue.300'} fontSize="md" fontWeight="extrabold">
-        6/18（五）- 6/20 (日) 2晚
-      </Box>
+      <HStack>
+        <Box as="p" textAlign="start" color={'blue.300'} fontSize="md" fontWeight="extrabold">
+          6/18（五）- 6/20 (日) 2晚
+        </Box>
+        <Edit />
+        <Text color="gray.500" fontSize="sm">
+          修改訂單
+        </Text>
+      </HStack>
       <VStack bg={'gray.100'} p={5} borderRadius={5} mt={2}>
         <HStack borderBottomWidth={1} w="full" justify="space-between">
           <Text color="gray.500" fontSize="sm">
@@ -100,12 +106,6 @@ export const Order = () => {
           前往支付 NT$ 4700
         </Button>
       </VStack>
-      <HStack justify="center">
-        <Edit />
-        <Text color="gray.500" fontSize="sm">
-          修改訂單
-        </Text>
-      </HStack>
     </Box>
   );
 };

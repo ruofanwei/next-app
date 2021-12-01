@@ -1,4 +1,6 @@
+import React from 'react';
 import 'tailwindcss/tailwind.css';
+
 import 'focus-visible/dist/focus-visible';
 import '../components/styles/globals.css';
 import { SessionProvider } from 'next-auth/react';

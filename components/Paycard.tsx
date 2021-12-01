@@ -62,7 +62,7 @@ const Paycard = () => {
         bg={useColorModeValue('white', 'gray.700')}
         rounded={{ base: 'none', md: 'xl' }}
         boxShadow={'lg'}
-        p={{ base: 'none', md: '5' }}
+        p={{ base: '2', md: '5' }}
         my={{ base: 'none', md: '1' }}
       >
         <Accordion allowToggle={allowToggle} defaultIndex={[0]}>
