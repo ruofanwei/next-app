@@ -29,10 +29,12 @@ export const Order = () => {
     <Box
       w={{ base: '100%', md: 'md' }}
       bg={'white'}
-      rounded={{ base: 'none', md: 'xl' }}
+      boxShadow={{ base: 'lg', md: 'lg' }}
+      rounded={{ base: 'md', md: 'xl' }}
       fontSize={{ base: 'md', md: 'lg' }}
       p={{ base: '5', md: '10' }}
       lineHeight="taller"
+      my={{ base: 'none', md: '2' }}
     >
       <Box as="p" textAlign="start" color={'blue.300'} fontWeight="extrabold">
         南投中寮 言葉之庭露營區
@@ -46,7 +48,7 @@ export const Order = () => {
         </Box>
         <Edit />
         <Text color="gray.500" fontSize="sm">
-          修改訂單
+          修改
         </Text>
       </HStack>
       <VStack bg={'gray.100'} p={5} borderRadius={5} mt={2}>

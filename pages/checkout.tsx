@@ -1,19 +1,7 @@
-import { useState, SyntheticEvent } from 'react';
-import { useRouter } from 'next/router';
-import {
-  useColorMode,
-  Spacer,
-  Button,
-  Heading,
-  Text,
-  Link,
-  Divider,
-  Flex,
-  Box,
-  useBreakpointValue,
-  VStack,
-} from '@chakra-ui/react';
-import CustomContainer, { IMultiContainerProps } from '../components/custom-container';
+import React from 'react';
+import { useMachine } from '@xstate/react';
+import { Flex, Box } from '@chakra-ui/react';
+
 import { Buyer } from '../components/Buyer';
 import Paycard from '../components/Paycard';
 import { Order } from '../components/Order';
@@ -23,7 +11,7 @@ const Checkout = () => {
   return (
     <Container height="100vh">
       <Header />
-      <Container bg="gray.200" overflow="auto" margin="auto" minH="full">
+      <Container bg="gray.200" overflow="auto" margin="auto" minH="full" p={{ base: 2 }}>
         <Flex
           py={[0, 0, 5]}
           direction={{ base: 'column', md: 'row' }}
@@ -33,10 +21,8 @@ const Checkout = () => {
         >
           <Box>
             <Buyer />
-
             <Paycard />
           </Box>
-
           <Order />
         </Flex>
       </Container>

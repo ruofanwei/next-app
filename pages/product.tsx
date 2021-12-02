@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useRef, createRef } from 'react';
+import React from 'react';
 import { Container, Box } from '@chakra-ui/react';
 import { QuillDeltaToHtmlConverter } from 'quill-delta-to-html';
 
@@ -6,203 +6,117 @@ export default function Product() {
   const contents = {
     ops: [
       {
-        insert: 'Quill Rich Text Editor',
-      },
-      {
         attributes: {
-          align: 'center',
-          header: 1,
-        },
-        insert: '\n',
-      },
-      {
-        attributes: {
-          align: 'center',
-        },
-        insert: '\n',
-      },
-      {
-        insert: 'Quill is a free, ',
-      },
-      {
-        attributes: {
-          background: 'transparent',
-          link: 'https://github.com/quilljs/quill/',
-        },
-        insert: 'open source',
-      },
-      {
-        insert: ' WYSIWYG editor built for the modern web. With its ',
-      },
-      {
-        attributes: {
-          background: 'transparent',
-          link: 'https://quilljs.com/docs/modules/',
-        },
-        insert: 'modular architecture',
-      },
-      {
-        insert: ' and expressive ',
-      },
-      {
-        attributes: {
-          background: 'transparent',
-          link: 'https://quilljs.com/docs/api/',
-        },
-        insert: 'API',
-      },
-      {
-        insert: ', it is completely customizable to fit any need.',
-      },
-      {
-        attributes: {
-          align: 'center',
-        },
-        insert: '\n',
-      },
-      {
-        insert: 'head1',
-      },
-      {
-        attributes: {
-          align: 'center',
-          header: 1,
-        },
-        insert: '\n',
-      },
-      {
-        insert: 'head2',
-      },
-      {
-        attributes: {
-          align: 'center',
-          header: 2,
-        },
-        insert: '\n',
-      },
-      {
-        attributes: {
+          background: '#ffffff',
+          color: '#333333',
           bold: true,
         },
-        insert: 'bold',
+        insert: '拉吉波拉拉村免裝備露營',
       },
       {
         attributes: {
-          align: 'center',
+          background: '#ffffff',
+          color: '#333333',
         },
-        insert: '\n',
+        insert: '：園區內的星月花園及小溪樂園提供廣闊的草坪及人造溪流。',
       },
       {
-        attributes: {
-          italic: true,
-        },
-        insert: 'ggg',
+        insert: '\n\n',
       },
       {
-        attributes: {
-          align: 'center',
-        },
-        insert: '\n',
-      },
-      {
-        attributes: {
-          underline: true,
-          italic: true,
-        },
-        insert: 'ddd',
-      },
-      {
-        attributes: {
-          align: 'center',
-        },
-        insert: '\n',
-      },
-      {
-        attributes: {
-          strike: true,
-        },
-        insert: 'ccc',
-      },
-      {
-        attributes: {
-          align: 'center',
-        },
-        insert: '\n',
-      },
-      {
-        attributes: {
-          color: '#e60000',
-        },
-        insert: 'vvv',
-      },
-      {
-        attributes: {
-          align: 'center',
-        },
-        insert: '\n',
-      },
-      {
-        attributes: {
-          color: '#e60000',
-          background: '#ffebcc',
-        },
-        insert: 'xxx',
-      },
-      {
-        attributes: {
-          align: 'center',
-        },
-        insert: '\n',
-      },
-      {
-        attributes: {
-          color: '#e60000',
-          background: '#ffebcc',
-        },
-        insert: 'xxxx',
-      },
-      {
-        attributes: {
-          align: 'center',
-          list: 'ordered',
-        },
-        insert: '\n',
-      },
-      {
-        attributes: {
-          color: '#e60000',
-          background: '#ffebcc',
-        },
-        insert: 'dddd',
-      },
-      {
-        attributes: {
-          align: 'center',
-          list: 'bullet',
-        },
-        insert: '\n',
-      },
-      {
-        attributes: {
-          color: '#0066cc',
-          background: '#c285ff',
-          link: 'google.com',
-        },
-        insert: 'd',
-      },
-      {
-        attributes: {
-          align: 'center',
-        },
-        insert: '\n',
-      },
-      {
-        attributes: {
-          width: '1097',
-        },
         insert: {
-          image: 'https://i.ibb.co/TLdPtzr/line-login.png',
+          image: 'https://i.ibb.co/6y66vVT/pars-sahin-V7u-P-Xzq-X18-unsplash.jpg',
         },
+      },
+      {
+        insert: '\n',
+      },
+      {
+        attributes: {
+          color: '#333333',
+          background: '#ffffff',
+          italic: true,
+        },
+        insert: '(圖片來源：',
+      },
+      {
+        attributes: {
+          italic: true,
+          link: 'https://unsplash.com/',
+        },
+        insert: 'https://unsplash.com',
+      },
+      {
+        attributes: {
+          italic: true,
+        },
+        insert: '）',
+      },
+      {
+        insert: '\n\n',
+      },
+      {
+        attributes: {
+          background: '#ffffff',
+          color: '#333333',
+        },
+        insert: '離城市不遠，卻能保有山林的寧靜。絕佳地理位置可眺望',
+      },
+      {
+        attributes: {
+          background: '#ffffcc',
+          color: '#333333',
+        },
+        insert: '日落黃昏、星空夜景',
+      },
+      {
+        attributes: {
+          background: '#ffffff',
+          color: '#333333',
+        },
+        insert: '！',
+      },
+      {
+        insert: '\n\n',
+      },
+      {
+        insert: {
+          image: 'https://i.ibb.co/JjpTqyh/christopher-jolly-gc-Cc-Iy6-Fc-M-unsplash.jpg',
+        },
+      },
+      {
+        insert: '\n',
+      },
+      {
+        attributes: {
+          color: '#333333',
+          background: '#ffffff',
+          italic: true,
+        },
+        insert: '(圖片來源：',
+      },
+      {
+        attributes: {
+          italic: true,
+          link: 'https://unsplash.com/',
+        },
+        insert: 'https://unsplash.com',
+      },
+      {
+        attributes: {
+          italic: true,
+        },
+        insert: '）',
+      },
+      {
+        insert: '\n\n',
+      },
+      {
+        attributes: {
+          background: '#ffffff',
+          color: '#333333',
+        },
+        insert: '座落於壯闊的山林裡，享受旅居自然的慢時光 🏕',
       },
       {
         insert: '\n',
