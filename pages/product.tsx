@@ -1,13 +1,6 @@
-import React, { useEffect, useState, useRef } from 'react';
-import dynamic from 'next/dynamic';
-import { Container } from '@chakra-ui/react';
-
+import React, { useEffect, useState, useRef, createRef } from 'react';
+import { Container, Box } from '@chakra-ui/react';
 import { QuillDeltaToHtmlConverter } from 'quill-delta-to-html';
-
-const ReactQuill = dynamic(import('react-quill'), {
-  ssr: false,
-  loading: () => <p>Loading ...</p>,
-});
 
 export default function Product() {
   const contents = {
@@ -222,8 +215,8 @@ export default function Product() {
   const html = converter.convert();
 
   return (
-    <Container>
-      <ReactQuill readOnly={true} theme="bubble" value={html} />
+    <Container className="ql-bubble">
+      <Box dangerouslySetInnerHTML={{ __html: html }} className="ql-editor"></Box>
     </Container>
   );
 }

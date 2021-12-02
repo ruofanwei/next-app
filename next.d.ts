@@ -12,3 +12,5 @@ declare module 'next/app' {
     Component: NextPageWithLayout;
   };
 }
+
+declare module 'react-quill';
