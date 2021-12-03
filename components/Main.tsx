@@ -23,6 +23,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { Carousel } from './Carousel';
 import { CustomTab } from './CustomTab';
 import { Container } from './Container';
+import ProductTabList from './ProductTabList';
 
 export interface dataType {
   label: string;
@@ -49,7 +50,7 @@ export const Main = () => {
       <Stack textAlign={'center'} align={'center'} spacing={{ base: 8, md: 10 }}>
         <Carousel />
         <Stack spacing={6} direction={'row'} mt={{ base: 10, md: 0 }}>
-          <CustomTab>{data}</CustomTab>
+          <ProductTabList>{data}</ProductTabList>
         </Stack>
       </Stack>
     </Container>
