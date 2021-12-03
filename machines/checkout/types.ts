@@ -2,7 +2,7 @@ import { createModel } from 'xstate/lib/model';
 import { ContextFrom, EventFrom } from 'xstate';
 
 export type checkoutStateType = {
-  context?: string;
+  context: null;
   value: 'active';
 };
 
@@ -32,8 +32,8 @@ export type checkoutContext = ContextFrom<typeof checkoutModal>;
 export type checkoutEvent = EventFrom<typeof checkoutModal>;
 
 export type buyerInfoStateType = {
-  context?: string;
-  value: 'pending' | 'complete' | 'editing';
+  context: null;
+  value: 'machineNotInvoked' | 'machineInvoked';
 };
 
 export type buyerInfo = {
@@ -52,9 +52,9 @@ export const buyerInfoModal = createModel(
   {
     // Event creators
     events: {
-      submitBuyerInfoEvent: () => ({}),
-      editBuyerInfoEvent: () => ({}),
-      clearBuyerInfoEvent: () => ({}),
+      toggleStateButtonClicked: () => ({}),
+      sendEventButtonClicked: () => ({}),
+      checkoutEvent: () => ({}),
     },
   }
 );

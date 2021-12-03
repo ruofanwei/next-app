@@ -5,7 +5,7 @@ const { log } = actions;
 
 export const checkoutMachine = createMachine<checkoutContext, checkoutEvent>({
   id: 'checkoutMachine',
-  initial: 'pending',
+  initial: 'active',
   states: {
     active: {
       on: {

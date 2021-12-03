@@ -8,30 +8,25 @@ const SUBMIT_FORM_ID = 'SUBMIT_FORM_ID';
 export const buyerInfoMachine = createMachine<buyerInfoContext, buyerInfoEvent>(
   {
     id: 'buyerInfoMachine',
-    initial: 'pending',
+    initial: 'machineNotInvoked',
     on: {
-      submitBuyerInfoEvent: {
+      sendEventButtonClicked: {
         actions: 'attemptSendEvent',
       },
     },
     states: {
-      pending: {
+      machineNotInvoked: {
         on: {
-          submitBuyerInfoEvent: 'complete',
+          toggleStateButtonClicked: 'machineInvoked',
         },
       },
-      complete: {
+      machineInvoked: {
         invoke: {
           src: checkoutMachine,
           id: SUBMIT_FORM_ID,
         },
         on: {
-          editBuyerInfoEvent: 'editing',
-        },
-      },
-      editing: {
-        on: {
-          submitBuyerInfoEvent: 'complete',
+          toggleStateButtonClicked: 'machineNotInvoked',
         },
       },
     },
@@ -44,7 +39,7 @@ export const buyerInfoMachine = createMachine<buyerInfoContext, buyerInfoEvent>(
           actions: 'sendEvent',
         },
       ]),
-      sendEvent: send(buyerInfoModal.events.submitBuyerInfoEvent(), {
+      sendEvent: send(buyerInfoModal.events.checkoutEvent(), {
         to: SUBMIT_FORM_ID,
       }),
     },

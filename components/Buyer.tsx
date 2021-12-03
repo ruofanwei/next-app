@@ -1,6 +1,5 @@
 import React from 'react';
 import { useMachine } from '@xstate/react';
-import { interpret } from 'xstate';
 import {
   Button,
   Flex,
@@ -20,16 +19,16 @@ import {
   Textarea,
   useBreakpointValue,
 } from '@chakra-ui/react';
-
 import { buyerInfoMachine } from '../machines/checkout/buyerInfoMachine';
 
 export const Buyer = () => {
-  const [current, send] = useMachine(buyerInfoMachine);
+  const [state, send] = useMachine(buyerInfoMachine);
   const allowToggle = useBreakpointValue({ base: true, md: false });
-
   const handleNextStep = () => {
-    send('submitBuyerInfoEvent');
+    send('toggleStateButtonClicked');
   };
+
+  console.log('state', state);
 
   return (
     <Flex
@@ -91,7 +90,6 @@ export const Buyer = () => {
               當您完成訂位下單，即表示同意預定營區之露營期間、營位型態、食材、數量、服務、價格、訂金、付款方式，及提供聯絡方式等內容。
             </Box>
             <Stack spacing={6} mt={3} display={{ base: 'block', md: 'none' }}>
-              {current.matches('pending') && <div>pending...</div>}
               <Button colorScheme="teal" variant="outline" w="full" onClick={handleNextStep}>
                 下一步
               </Button>
