@@ -49,6 +49,7 @@ export const Buyer = () => {
             fontSize={{ base: 'md', md: 'lg' }}
             borderBottomWidth={{ base: 'none', md: '1px' }}
             fontWeight="500"
+            id="Accordion-id"
           >
             <Box as={'span'} display={{ base: 'block', md: 'none' }}>
               1.{' '}

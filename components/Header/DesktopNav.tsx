@@ -22,9 +22,9 @@ export const DesktopNav = (props: BoxProps) => {
   const popoverContentBgColor = useColorModeValue('white', 'gray.800');
   return (
     <Stack direction={'row'} spacing={4} {...props}>
-      {NAV_ITEMS.map((navItem, id) => (
-        <Box key={id}>
-          <Popover trigger={'hover'} placement={'bottom-start'}>
+      {NAV_ITEMS.map((navItem) => (
+        <Box key={navItem.id}>
+          <Popover trigger={'hover'} placement={'bottom-start'} id={`${navItem.id}-Popover-id`}>
             <PopoverTrigger>
               <Link
                 p={2}
@@ -45,7 +45,7 @@ export const DesktopNav = (props: BoxProps) => {
               <PopoverContent border={0} boxShadow={'xl'} bg={popoverContentBgColor} p={4} rounded={'xl'} minW={'sm'}>
                 <Stack>
                   {navItem.children.map((child) => (
-                    <DesktopSubNav key={child.label} {...child} />
+                    <DesktopSubNav key={child.id} {...child} />
                   ))}
                 </Stack>
               </PopoverContent>

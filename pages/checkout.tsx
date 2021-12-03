@@ -3,7 +3,7 @@ import { useMachine } from '@xstate/react';
 import { Flex, Box } from '@chakra-ui/react';
 
 import { Buyer } from '../components/Buyer';
-import Paycard from '../components/Paycard';
+import CreditCardForm from '../components/CreditCardForm';
 import { Order } from '../components/Order';
 import { Header } from '../components/Header/index';
 import { Container } from '../components/Container';
@@ -21,7 +21,7 @@ const Checkout = () => {
         >
           <Box>
             <Buyer />
-            <Paycard />
+            <CreditCardForm />
           </Box>
           <Order />
         </Flex>
