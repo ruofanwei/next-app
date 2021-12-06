@@ -4,7 +4,7 @@ import { Flex, Box } from '@chakra-ui/react';
 import { FormProvider, useForm, useFormContext } from 'react-hook-form';
 import cardValidator from 'card-validator';
 import { Buyer } from '../components/Buyer';
-import PaymentCard from '../components/paymentCard';
+import PaymentCard from '../components/PaymentCard';
 import { Order } from '../components/Order';
 import { Header } from '../components/Header/index';
 import { Container } from '../components/Container';

@@ -30,6 +30,7 @@ import {
   TabPanels,
   Tab,
   TabPanel,
+  BoxProps,
 } from '@chakra-ui/react';
 import VISA from '../public/svg/VISA.svg';
 import JCB from '../public/svg/JCB.svg';
@@ -50,6 +51,11 @@ const CreditCardForm: React.FC<Props> = (props) => {
   const cardNumber = watch('cardNumber');
 
   const { card } = cardValidator.number(cardNumber);
+
+  const holderNameRef = useRef<HTMLInputElement>(null);
+  const cardNumberRef = useRef<HTMLInputElement>(null);
+  const expirationRef = useRef<HTMLInputElement>(null);
+  const cvvRef = useRef<HTMLInputElement>(null);
 
   let source;
   switch (card?.type) {
@@ -78,6 +84,8 @@ const CreditCardForm: React.FC<Props> = (props) => {
         placeholder="信用卡號碼"
         type="text"
         name="cardNumber"
+        ref={cardNumberRef}
+        onValid={() => expirationRef.current?.focus()}
         rules={{
           required: 'Card number is required.',
           validate: {
@@ -96,17 +104,30 @@ const CreditCardForm: React.FC<Props> = (props) => {
       <FormLabel id="holderName" fontSize={{ base: 'sm', md: 'md' }} fontWeight="400" color="gray.400">
         姓名
       </FormLabel>
-      <Input type="text" placeholder="信用卡持有人姓名" name="holderName" />
+      <Input
+        type="text"
+        ref={holderNameRef}
+        onValid={() => cardNumberRef.current?.focus()}
+        placeholder="信用卡持有人姓名"
+        name="holderName"
+      />
 
       <Flex alignItems="flex-end">
         <Box>
           <FormLabel id="expiration" fontSize={{ base: 'sm', md: 'md' }} fontWeight="400" color="gray.400">
             信用卡有效年月
           </FormLabel>
-          <Input placeholder="月份 / 年" name="expiration" _placeholder={{ color: 'gray.500' }} type="text" />
+          <Input
+            placeholder="月份 / 年"
+            ref={expirationRef}
+            onValid={() => cvvRef.current?.focus()}
+            name="expiration"
+            _placeholder={{ color: 'gray.500' }}
+            type="text"
+          />
         </Box>
 
-        <Input placeholder="卡片末三碼" name="cvv" _placeholder={{ color: 'gray.500' }} type="text" />
+        <Input placeholder="卡片末三碼" ref={cvvRef} name="cvv" _placeholder={{ color: 'gray.500' }} type="text" />
       </Flex>
     </FormControl>
   );
