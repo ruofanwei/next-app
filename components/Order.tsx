@@ -1,3 +1,4 @@
+import React from 'react';
 import Image from 'next/image';
 import {
   Box,
@@ -18,12 +19,22 @@ import {
   Input,
   Button,
 } from '@chakra-ui/react';
+import { useForm, UseFormReturn, SubmitHandler } from 'react-hook-form';
 
 import Info from '../public/svg/Info.svg';
 import Point from '../public/svg/Point.svg';
 import Edit from '../public/svg/Edit.svg';
 import Delete from '../public/svg/Delete.svg';
-export const Order = () => {
+
+type FormProps<TFormValues> = {
+  onSubmit: SubmitHandler<TFormValues>;
+  //children: (methods: UseFormReturn<TFormValues>) => React.ReactNode;
+};
+export const Order = <TFormValues extends Record<string, any> = Record<string, any>>({
+  onSubmit,
+}: //children
+FormProps<TFormValues>) => {
+  const methods = useForm<TFormValues>();
   const allowToggle = useBreakpointValue({ base: true, md: false });
   return (
     <Box
@@ -104,7 +115,7 @@ export const Order = () => {
             NT$ 4700
           </Text>
         </HStack>
-        <Button w="full" colorScheme="blue">
+        <Button w="full" colorScheme="blue" onSubmit={methods.handleSubmit(onSubmit)}>
           前往支付 NT$ 4700
         </Button>
       </VStack>

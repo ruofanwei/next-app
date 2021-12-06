@@ -3,6 +3,7 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
+    "test": "jest",
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
@@ -14,6 +15,11 @@
       "eslint"
     ]
   },
+  "jest": {
+    "modulePathIgnorePatterns": [
+      "<rootDir>/lib/"
+    ]
+  },
   "dependencies": {
     "@chakra-ui/react": "^1.6.12",
     "@emotion/react": "^11.5.0",
@@ -23,6 +29,7 @@
     "@tailwindcss/typography": "^0.4.1",
     "autoprefixer": "^10.4.0",
     "bcrypt": "^5.0.1",
+    "card-validator": "^8.1.1",
     "cloudinary": "^1.27.1",
     "compressorjs": "^1.1.1",
     "focus-visible": "^5.2.0",
@@ -49,6 +56,7 @@
     "@chakra-ui/core": "^0.8.0",
     "@chakra-ui/icons": "^1.0.17",
     "@hypertheme-editor/chakra-ui": "^0.1.2",
+    "@types/jest": "^27.0.3",
     "@types/js-cookie": "^3.0.0",
     "@types/node": "16.11.6",
     "@types/quill": "^2.0.9",
