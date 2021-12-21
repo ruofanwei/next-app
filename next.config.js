@@ -11,8 +11,8 @@ const nextConfig = {
     domains: ['i.imgur.com', 'images.pexels.com', 'res.cloudinary.com', 'images.unsplash.com'],
   },
   i18n: {
-    locales: ['en-US', 'zh-Hant-TW', 'ja-JP'],
-    defaultLocale: 'zh-Hant-TW',
+    locales: ['en-US', 'zh-TW', 'ja-JP'],
+    defaultLocale: 'zh-TW',
   },
   webpack(config) {
     config.module.rules.push({
