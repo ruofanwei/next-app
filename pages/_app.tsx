@@ -1,6 +1,9 @@
-import React, { useMemo } from 'react';
+import React, { useMemo, useState } from 'react';
 import { useRouter } from 'next/router';
 import { IntlProvider } from 'react-intl';
+import { QueryClient, QueryClientProvider } from 'react-query';
+import { ReactQueryDevtools } from 'react-query/devtools';
+
 import 'tailwindcss/tailwind.css';
 import 'focus-visible/dist/focus-visible';
 import '../components/styles/globals.css';
@@ -14,6 +17,7 @@ import Chinese from '../content/compiled-locales/zh.json';
 import Japanese from '../content/compiled-locales/ja.json';
 
 function MyApp({ Component, pageProps: { session, ...pageProps } }: AppProps) {
+  const [queryClient] = useState(() => new QueryClient());
   // use the useRouter()hook to access the current locale of the user
   const { locale } = useRouter();
   const [currentLocale] = locale ? locale.split('_') : ['zh'];
@@ -33,11 +37,13 @@ function MyApp({ Component, pageProps: { session, ...pageProps } }: AppProps) {
 
   return (
     <SessionProvider session={session}>
-      <IntlProvider locale={currentLocale} messages={messages} onError={() => null}>
-        <ChakraProvider resetCSS theme={theme}>
-          <Component {...pageProps} />
-        </ChakraProvider>
-      </IntlProvider>
+      <QueryClientProvider client={queryClient}>
+        <IntlProvider locale={currentLocale} messages={messages} onError={() => null}>
+          <ChakraProvider resetCSS theme={theme}>
+            <Component {...pageProps} />
+          </ChakraProvider>
+        </IntlProvider>
+      </QueryClientProvider>
     </SessionProvider>
   );
 }

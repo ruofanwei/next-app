@@ -1,7 +1,26 @@
 import { ReactNode } from 'react';
+import { useIntl, FormattedDate } from 'react-intl';
 import Image from 'next/image';
-import { Box, Container, Link, SimpleGrid, Stack, Text, useColorModeValue } from '@chakra-ui/react';
-
+import {
+  Box,
+  Container,
+  Link,
+  SimpleGrid,
+  Stack,
+  Text,
+  useColorModeValue,
+  Menu,
+  MenuButton,
+  MenuList,
+  MenuItem,
+  MenuItemOption,
+  MenuGroup,
+  MenuOptionGroup,
+  MenuDivider,
+  Button,
+  HStack,
+} from '@chakra-ui/react';
+import { ChevronDownIcon } from '@chakra-ui/icons';
 const Logo = (props: any) => {
   return <Text>Logo</Text>;
 };
@@ -24,6 +43,19 @@ export const Footer = () => {
               <Logo color={useColorModeValue('gray.700', 'white')} />
             </Box>
             <Text fontSize={'sm'}>camping - GO</Text>
+            <HStack>
+              <Text fontSize={'sm'}>switch langue on </Text>
+              <Menu>
+                <MenuButton as={Button} rightIcon={<ChevronDownIcon />}>
+                  Chinese
+                </MenuButton>
+                <MenuList>
+                  <MenuItem>Chinese</MenuItem>
+                  <MenuItem>English</MenuItem>
+                  <MenuItem>Japanese</MenuItem>
+                </MenuList>
+              </Menu>
+            </HStack>
           </Stack>
           <Stack align={'center'}>
             <ListHeader>會員服務</ListHeader>
