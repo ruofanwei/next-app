@@ -5,9 +5,7 @@ export default class Document extends NextDocument {
   render() {
     return (
       <Html>
-        <Head>
-          <link rel="stylesheet" href="https://unpkg.com/react-quill@1.3.3/dist/quill.bubble.css" />
-        </Head>
+        <Head></Head>
 
         <body>
           {/* Make Color mode to persists when you refresh the page. */}
