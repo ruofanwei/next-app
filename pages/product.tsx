@@ -1,9 +1,6 @@
 import React from 'react';
-import { dehydrate, QueryClient } from 'react-query';
 import { Container, Box } from '@chakra-ui/react';
 import { QuillDeltaToHtmlConverter } from 'quill-delta-to-html';
-
-import { fetchProduct } from '../hooks/useSearch';
 
 export default function Product() {
   const contents = {
@@ -136,16 +133,4 @@ export default function Product() {
       <Box dangerouslySetInnerHTML={{ __html: html }} className="ql-editor"></Box>
     </Container>
   );
-}
-
-export async function getStaticProps() {
-  const queryClient = new QueryClient();
-
-  await queryClient.prefetchQuery(['products', 10], () => fetchProduct(10));
-
-  return {
-    props: {
-      dehydrateState: dehydrate(queryClient),
-    },
-  };
 }
