@@ -1,4 +1,4 @@
-export const ALL_POKEMON_SPECIES = [
+export const ALL_PRODUCTS = [
   {
     name: 'bulbasaur',
     url: 'https://pokeapi.co/api/v2/pokemon-species/1/',
