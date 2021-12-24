@@ -27,7 +27,7 @@ export default function Product() {
       return <Box>Not Found ...</Box>;
     }
 
-    if (isSuccess) {
+    if (isSuccess && data !== undefined) {
       return <ProductSearchResult products={data} />;
     }
 
