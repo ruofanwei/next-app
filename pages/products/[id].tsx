@@ -15,6 +15,7 @@ export default function Product() {
   const { isSuccess, data, isLoading, isError } = useQuery(['getProduct', productId], () => fetchProduct(productId), {
     enabled: productId.length > 0,
     staleTime: Infinity,
+    cacheTime: Infinity,
   });
 
   if (isSuccess) {
