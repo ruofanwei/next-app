@@ -1,13 +1,13 @@
 import Link from 'next/link';
 import { Box, SimpleGrid } from '@chakra-ui/react';
 
-const ProductSearchResult = ({ pokemons }: { pokemons: string[] }) => {
-  return pokemons.length > 0 ? (
+const ProductSearchResult = ({ products }: { products: string[] }) => {
+  return products.length > 0 ? (
     <SimpleGrid columns={2} spacing={10}>
-      {pokemons.map((pokemon) => (
-        <Link href={`/pokemon/${pokemon}`} key={pokemon}>
+      {products.map((product) => (
+        <Link href={`/products/${product}`} key={product}>
           <a>
-            <Box className="pokemon-card">{pokemon}</Box>
+            <Box className="product-card">{product}</Box>
           </a>
         </Link>
       ))}
