@@ -21,9 +21,9 @@ export default function Product() {
     return (
       <PokemonCard
         name={data.name}
-        image={data.image}
+        image={data.sprites?.other?.['official-artwork']?.front_default}
         weight={data.weight}
-        abilities={data.abilities}
+        abilities={data.abilities?.map((item: any) => item.ability.name)}
         xp={data.base_experience}
       />
     );
