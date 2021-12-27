@@ -1,11 +1,12 @@
 import React, { useState } from 'react';
 import { useQuery } from 'react-query';
-import { Container, Box, Input } from '@chakra-ui/react';
-
+import { Box, Input, HStack, InputGroup, Button, ButtonGroup } from '@chakra-ui/react';
+import Search from '../components/Search';
+import Layout from '../components/layout/Layout';
 import searchProduct from '../lib/searchProduct';
 import useDebounce from '../hooks/useDebounce';
 import ProductSearchResult from '../components/ProductSearchResult';
-
+import Filter from '../public/svg/filter.svg';
 export default function Product() {
   const [searchValue, setSearchValue] = useState('');
   const debounceSearchValue = useDebounce(searchValue, 300);
@@ -35,14 +36,21 @@ export default function Product() {
   };
 
   return (
-    <Container>
-      <Input
-        placeholder="search !"
-        type="text"
-        onChange={({ target: { value } }) => setSearchValue(value)}
-        value={searchValue}
-      />
+    <Layout>
+      <HStack bg={'brandGreen.100'}>
+        <Search
+          placeholder="關鍵字"
+          type="text"
+          onChange={({ target: { value } }) => setSearchValue(value)}
+          value={searchValue}
+        />
+        <Button leftIcon={<Filter />} colorScheme="brandBlue" m={'0'}>
+          篩選條件
+        </Button>
+      </HStack>
+      {isSuccess && <Box>顯示資料共 {data.length - 1} 筆</Box>}
+
       {renderResult()}
-    </Container>
+    </Layout>
   );
 }

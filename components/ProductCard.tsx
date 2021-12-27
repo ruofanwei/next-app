@@ -1,12 +1,8 @@
 import React from 'react';
-import { Box, Flex, Image, Badge, useColorModeValue, chakra, Grid } from '@chakra-ui/react';
-import { StarIcon } from '@chakra-ui/icons';
+
 import { GridResponsive } from './layout/GridResponsive';
-import NextImage from 'next/image';
-const CardImage = chakra(NextImage, {
-  baseStyle: { maxH: 120, maxW: 120 },
-  shouldForwardProp: (prop) => ['width', 'height', 'src', 'alt'].includes(prop),
-});
+import { Product } from './Product';
+
 export const ProductCard = () => {
   const propertys = [
     {
@@ -109,23 +105,14 @@ export const ProductCard = () => {
   return (
     <GridResponsive>
       {propertys.map((property, sid) => (
-        <Box key={`slide-${sid}`} flex="none" boxSize="fit-content" shadow="md" rounded="lg">
-          <CardImage
-            src={property.imageUrl}
-            boxSize="fit-content"
-            roundedTop="lg"
-            backgroundSize="cover"
-            width={'430'}
-            height={'282'}
-            objectFit="cover"
-          />
-          <Box as="p" color="gray.500" fontWeight="semibold" fontSize="xs" textTransform="uppercase">
-            {property.local} &bull; {property.country}
-          </Box>
-          <Box as="p" fontWeight="semibold" color="gray.500" fontSize="sm" p="1">
-            {property.title}
-          </Box>
-        </Box>
+        <Product
+          imageAlt={property.imageAlt}
+          imageUrl={property.imageUrl}
+          local={property.local}
+          country={property.country}
+          title={property.title}
+          key={sid}
+        />
       ))}
     </GridResponsive>
   );

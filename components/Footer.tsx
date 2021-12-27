@@ -35,16 +35,20 @@ const ListHeader = ({ children }: { children: ReactNode }) => {
 
 export const Footer = () => {
   return (
-    <Box width="100%" bg={useColorModeValue('gray.50', 'gray.900')} color={useColorModeValue('gray.700', 'gray.200')}>
+    <Box
+      width="100%"
+      bg={useColorModeValue('brandGreen.100', 'gray.900')}
+      color={useColorModeValue('brandGray.600', 'gray.200')}
+    >
       <Container as={Stack} maxW={'6xl'} py={10}>
         <SimpleGrid templateColumns={{ sm: '1fr 1fr', md: '2fr 1fr 1fr 1fr 1fr' }} spacing={8}>
           <Stack spacing={6} align={'center'}>
             <Box>
-              <Logo color={useColorModeValue('gray.700', 'white')} />
+              <Logo color={useColorModeValue('brandGray.600', 'white')} />
             </Box>
             <Text fontSize={'sm'}>camping - GO</Text>
             <HStack>
-              <Text fontSize={'sm'}>switch langue on </Text>
+              <Text fontSize={'sm'}>switch langue to </Text>
               <Menu>
                 <MenuButton as={Button} rightIcon={<ChevronDownIcon />}>
                   Chinese
